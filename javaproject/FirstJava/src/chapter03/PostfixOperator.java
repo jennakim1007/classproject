@@ -13,7 +13,7 @@ public class PostfixOperator {
 		System.out.println("num1 = " + num1);
 		System.out.println("num2 = " + num2);
 		
-		System.out.println("num1 = " + num1++);
+		System.out.println("num1 = " + num1++); // 6으로 나오지만 실제 연산이 끝나면 7이 되겠음.
 		
 		
 		
