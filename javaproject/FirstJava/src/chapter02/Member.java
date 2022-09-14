@@ -46,6 +46,7 @@ public class Member {
 		System.out.println("책 보유 여부를 입력해주세요.>>> ");
 		hasBook = in.nextBoolean();
 		
+		
 		// name = "김나나";
 		// age = 20;
 		// height = 123.0;
