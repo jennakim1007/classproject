@@ -15,11 +15,11 @@ public class SwitchCaseTest2 {
 		// key : int 가능한 숫자, String 
 		// key : byte, short, int, char 
 		switch(score/10) {
-		/*case 10 : 
+			/*case 10 : 
 			System.out.println("A");
 			break;
 			*/
-		case 9 : case 10 :
+		case 9 : case 10 : // 아래 실행할 문장이 같을 때 : 을 통해 일괄 처리 가능
 			System.out.println("A");
 			break;
 		case 8 :
