@@ -50,8 +50,9 @@ public class SmartPhone {
 	}
 	
 	SmartPhone() {
-		
-	}
+		// 매개변수 없고, 처리 내용이 없는 생성자 => 기본생성, 생략가능 
+	} // 디폴트 생성자는 생성자가 여러 개 정의되어있을 때 명시적으로 선언해야 한다. 
+	
 	
 	SmartPhone(String company) {
 //		this.company = company;
