@@ -13,11 +13,11 @@ public class Exam1 {
 		for (int i = 0; i < scores.length; i++) {
 			for (int j = 0; j < scores[i].length; j++) {
 				// System.out.println(scores[i][j]);
-				int num = (int) (Math.random() * 51) + 50; 
+				int num = (int) (Math.random() * 51) + 50;
 				scores[i][j] = num;
 			}
 		}
-		
+
 		System.out.println("=======================");
 		System.out.println("국어" + "\t" + "영어" + "\t" + "수학" + "\t" + "총점" + "\t" + "평균");
 		System.out.println("=======================");
@@ -25,7 +25,7 @@ public class Exam1 {
 		int korTotal = 0;
 		int engTotal = 0;
 		int mathTotal = 0;
-		
+
 		for (int i = 0; i < scores.length; i++) {
 			int sum = 0;
 
@@ -50,15 +50,15 @@ public class Exam1 {
 				System.out.println();
 
 			}
-			
-			
+
 		}
-		
+
 		System.out.println("=======================");
 		System.out.print(korTotal + "\t" + engTotal + "\t" + mathTotal);
 		System.out.println();
-		System.out.print((float)korTotal/scores.length + "\t" + (float)engTotal/scores.length + "\t" + (float)mathTotal/scores.length);
-		
+		System.out.print((float) korTotal / scores.length + "\t" + (float) engTotal / scores.length + "\t"
+				+ (float) mathTotal / scores.length);
+
 	}
 
 }
