@@ -1,4 +1,4 @@
-package ver01;
+package ver02;
 
 class Contact {
 
@@ -92,6 +92,10 @@ class Contact {
 		System.out.println("그룹 : " + this.group);
 	}
 
+
+	
+	
+	
 	
 
 }
