@@ -19,10 +19,12 @@ public class SmartPhone {
 	
 	private Contact[] contacts; // null
 	private int numOfContact; // 입력된 정보의 개수, 배열의 index 값으로 사용 
+	Scanner sc;
 	
 	private SmartPhone(int size){
 		contacts = new Contact[size];
 		numOfContact = 0;
+		sc = new Scanner(System.in);
 	}
 	
 	private static SmartPhone sp = new SmartPhone(10);
@@ -45,19 +47,172 @@ public class SmartPhone {
 	 * 저장된 데이터의 리스트를 출력하는 메소드를 정의합니다
 	 */
 	
+	// 이름 검색 후 데이터 수정 
+	void editContact() {
+		
+		System.out.println("데이터 수정이 진행됩니다. ");
+		System.out.println("수정하고자 하는 이름을 입력해주세요. > ");
+		String name = sc.nextLine();
+		
+		// 삭제하고자하는 index 찾아야한다! -> 시프트
+		int searchIndex = -1;	// 현재 검색의 결과는 없다!
+		
+		// 데이터 찾기
+		for(int i=0; i<numOfContact; i++) {
+			
+			if(contacts[i].getName().equals(name)) {
+				searchIndex = i;
+				break;
+			}
+		}
+		
+		if(searchIndex<0) {
+			System.out.println("찾으시는 데이터가 존재하지 않습니다.");
+			return;
+		}
+		Contact contact = contacts[searchIndex];
+		
+		System.out.println("데이터 수정을 진행합니다. ");
+		System.out.println("변경하고자하는 이름을 입력해 주세요. (현재값 : " + contact.getName() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newName = sc.nextLine();
+		
+		// trim-> 공백제거 
+		if(newName != null && newName.trim().length()>0) {
+			contact.setName(newName);
+		}
+		
+		System.out.println("변경하고자하는 전화번호를 입력해 주세요. (현재값 : " + contact.getPhoneNumber() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newPhoneNumber = sc.nextLine();
+		
+		if(newPhoneNumber != null && newPhoneNumber.trim().length()>0) {
+			contact.setPhoneNumber(newPhoneNumber);
+		}
+		
+		System.out.println("변경하고자하는 이메일를 입력해 주세요. (현재값 : " + contact.getEmail() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newEmail = sc.nextLine();
+		
+		if(newEmail != null && newEmail.trim().length()>0) {
+			contact.setEmail(newEmail);
+		}
+		
+		System.out.println("변경하고자하는 주소를 입력해 주세요. (현재값 : " + contact.getAddress() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newAddress = sc.nextLine();
+		
+		if(newAddress != null && newAddress.trim().length()>0) {
+			contact.setAddress(newAddress);
+		}
+		
+		System.out.println("변경하고자하는 생일을 입력해 주세요. (현재값 : " + contact.getBirthday() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newBirthday = sc.nextLine();
+		
+		if(newBirthday != null && newBirthday.trim().length()>0) {
+			contact.setBirthday(searchIndex);
+		}
+		
+		System.out.println("변경하고자하는 그룹을 입력해 주세요. (현재값 : " + contact.getGroup() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		String newGroup = sc.nextLine();
+		
+		if(newGroup != null && newGroup.trim().length()>0) {
+			contact.setGroup(newGroup);
+		}
+		
+		System.out.println("정보가 수정되었습니다. ");
+		System.out.println();
+		
+	}
+	
+	// 삭제 (이름으로 검색)
+	void deleteContact() {
+		
+		// 검색어 받기 
+		System.out.println("데이터 삭제가 진행됩니다. ");
+		System.out.println("삭제하고자 하는 이름을 입력해주세요. > ");
+		String name = sc.nextLine();
+		
+		// 삭제하고자하는 index 찾아야한다! -> 시프트
+		int searchIndex = -1;	// 현재 검색의 결과는 없다!
+		
+		// 데이터 찾기
+		for(int i=0; i<numOfContact; i++) {
+			
+			if(contacts[i].getName().equals(name)) {
+				searchIndex = i;
+				break;
+			}
+		}
+		
+		// 검색한 index 값으로 분기 : 시프트를 하거나 검색 결과 이름이 존재하지 않는다!
+		if(searchIndex<0) {
+			System.out.println("삭제하고자 하는 이름의 데이터가 존재하지 않습니다. ");
+		} else {
+			for(int i=searchIndex; i<numOfContact-1; i++) {
+				contacts[i] = contacts[i+1];
+			}
+			
+			numOfContact--;	//시프트
+			System.out.println("데이터가 삭제되었습니다. ");
+		}
+		
+		
+	}
+	
+	
+	// 검색 후 결과 출력 (이름으로 검색)
+	void searchInfoPrint() {
+		// 1. 사용자에게 검색할 키워드 입력받는다.
+		// 2. 배열에서 이름 검색 
+		// 3. 결과 출력 : "검색한 이름의 정보가 없습니다."
+		
+		String name = null; // 검색할 이름 
+		System.out.println("검색을 시작합니다.");
+		System.out.println("검색할 이름을 입력하세요. >");
+		name = sc.nextLine();
+		
+		Contact contact = null;
+		
+		// 배열에서 검색할 이름을 가지는 인스턴스의 데이터 출력 메소드를 실행 
+		for(int i=0; i<numOfContact; i++) {
+			// 각 요소의 참조변수로 객체를 참조해서 이름을 비교 
+			if(contacts[i].getName().equals(name)) {
+				contact = contacts[i];
+				break;
+			}
+		}
+		
+		System.out.println("=====검색 결과=====");
+		if(contact == null) {
+			System.out.println("검색한 이름 " + name + "의 정보가 없습니다. ");
+		} else {
+			contact.showContact();
+		}
+	}
+	
 	// 전체 입력 데이터의 출력 
 	void printAllData() {
 		// 배열에 저장된 데이터를 모두 출력 
+		
+		System.out.println("----전체 데이터를 출력합니다----");
+		
+		if(numOfContact==0) {
+			System.out.println("입력된 정보가 없습니다. ");
+			return;
+		}
+		
 		for(int i=0; i<numOfContact; i++) {
 			contacts[i].showContact();
 		}
 	}
 	
-	
-	
+	// 친구정보 입력 
 	void insertContact() {
 		
 		Scanner sc = new Scanner(System.in);
+		
+		if(numOfContact==contacts.length) {
+			System.out.println("최대 저장 개수는 "+contacts+"개 입니다.");
+			return;
+		}
+		
 		
 		// 1. 배열에 인스턴스 저장하고
 		String name = null;

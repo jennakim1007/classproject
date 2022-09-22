@@ -17,10 +17,10 @@ class Contact {
 	private String phoneNumber;
 	private String email;
 	private String address;
-	private int birthday;
+	private String birthday;
 	private String group;
 
-	public Contact(String name, String phoneNumber, String email, String address, int birthday, String group) {
+	public Contact(String name, String phoneNumber, String email, String address, String birthday, String group) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -61,11 +61,11 @@ class Contact {
 		this.address = address;
 	}
 
-	public int getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(int birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
