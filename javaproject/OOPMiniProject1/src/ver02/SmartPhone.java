@@ -106,7 +106,7 @@ public class SmartPhone {
 		String newBirthday = sc.nextLine();
 		
 		if(newBirthday != null && newBirthday.trim().length()>0) {
-			contact.setBirthday(searchIndex);
+			contact.setBirthday(newBirthday);
 		}
 		
 		System.out.println("변경하고자하는 그룹을 입력해 주세요. (현재값 : " + contact.getGroup() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
@@ -238,7 +238,7 @@ public class SmartPhone {
 		group = sc.nextLine();
 		
 		// 3. 인스턴스 생성
-		Contact contact = new Contact(name, phoneNumber, email, address, 0, group);
+		Contact contact = new Contact(name, phoneNumber, email, address, birthday, group);
 		
 		// 4. 배열에 인스턴스의 참조값을 저장
 		
