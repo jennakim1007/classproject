@@ -67,7 +67,7 @@ public class Member {
 	
 	public static void printmyname(String name) 
 	{
-		System.out.println("안녕하세요. " + name + " 입니다. 반갑습니다. ");
+		System.out.println("안녕하세요. " + name + " 입니다. 반갑습니다... ");
 		// 반환이 있다 -> return 사용해서 데이터 반환 
 	}
 	
