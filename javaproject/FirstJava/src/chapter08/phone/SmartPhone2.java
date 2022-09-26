@@ -1,10 +1,10 @@
 package chapter08.phone;
 
-public class SmartPhone extends Computer implements Phone {
+public class SmartPhone2 extends Computer implements Phone, Application { // "," 를 이용해 인터페이스 여러 개를 구현 할 수 있음 
 	
 	boolean power;
 
-	public SmartPhone(String account) {
+	public SmartPhone2(String account) {
 		super(account);
 		this.power = false;
 	}
@@ -44,14 +44,29 @@ public class SmartPhone extends Computer implements Phone {
 		
 	}
 	
-	public static void main(String[] args) {
+	@Override
+	public void appRun(String appName) {
+		System.out.println(appName + "앱을 실행합니다. ");
 		
-		SmartPhone phone = new SmartPhone("cool@gmail.com");
-		phone.call(); // 오버라이딩 되어 있는 것 
-		phone.calculator(); // 컴퓨터가 가지고 있는 멤버 
+	}
+
+	@Override
+	public void appStop(String appName) {
+		System.out.println(appName + "앱을 종료합니다. ");
 		
 	}
 	
+	
+	public static void main(String[] args) {
+		
+		SmartPhone2 phone = new SmartPhone2("cool@gmail.com");
+		phone.call(); // 오버라이딩 되어 있는 것 
+		phone.calculator(); // 컴퓨터가 가지고 있는 멤버 
+		phone.appRun("유튜브");
+		
+	}
+
+
 	
 
 }
