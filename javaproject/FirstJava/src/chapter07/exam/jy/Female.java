@@ -23,7 +23,7 @@ public class Female extends Person {
 	void printHello() {
 		super.printHello();
 		System.out.print("저는 여자입니다. ");
-		System.out.println(grade + "학년 입니다.");
+		System.out.println(grade + "학년입니다.");
 	}
 	
 	

@@ -8,7 +8,7 @@ public class Male extends Person {
 	String nickName;
 	
 	// Person 클래스에 생성자를 정의해서 인스턴스 변수들을 초기화 해봅시다.
-	public Male(String name, String personNumber, String nickname) {
+	public Male(String name, String personNumber, String nickName) {
 		super(name, personNumber);
 		this.nickName = nickName;
 	}
@@ -23,7 +23,7 @@ public class Male extends Person {
 	void printHello() {
 		super.printHello();
 		System.out.print("저는 남자입니다. ");
-		System.out.println("별명은 " + nickName + " 입니다.");
+		System.out.println("별명은 " + nickName + "입니다.");
 	}
 	
 	
