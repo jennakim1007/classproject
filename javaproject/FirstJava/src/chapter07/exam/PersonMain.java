@@ -30,9 +30,7 @@ public class PersonMain {
 		
 		System.out.println();
 		System.out.println("---------------");
-		p2.printInfo();
-		
-		
+		p2.printInfo(); // 오버라이딩 된 것 출력 
 		
 	}
 
