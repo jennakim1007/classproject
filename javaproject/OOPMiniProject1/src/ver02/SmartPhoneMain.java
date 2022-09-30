@@ -4,7 +4,7 @@ public class SmartPhoneMain {
 
 	public static void main(String[] args) {
 		
-		SmartPhone smartPhone = SmartPhone.getInstance();
+		SmartPhone smartPhone = SmartPhone.getInstance(); // 싱글톤
 		
 		// 입력
 		smartPhone.insertContact();

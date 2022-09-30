@@ -1,4 +1,4 @@
-package ver02;
+package ver03;
 
 import java.util.Scanner;
 
@@ -116,6 +116,57 @@ public class SmartPhone {
 			contact.setGroup(newGroup);
 		}
 		
+		
+		if(contact instanceof CompanyContact) {
+			
+			CompanyContact companyContact = (CompanyContact)contact;
+			
+			System.out.println("변경하고자하는 회사이름을 입력해 주세요. (현재값 : " + companyContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String company = sc.nextLine();
+			
+			if(company != null && company.trim().length()>0) {
+				companyContact.setCompany(company);
+			} 
+		
+			System.out.println("변경하고자하는 부서이름을 입력해 주세요. (현재값 : " + companyContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String division = sc.nextLine();
+			
+			if(division != null && division.trim().length()>0) {
+				companyContact.setCompany(division);
+			} 
+
+			System.out.println("변경하고자하는 직급을 입력해 주세요. (현재값 : " + companyContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String manager = sc.nextLine();
+			
+			if(manager != null && manager.trim().length()>0) {
+				companyContact.setCompany(manager);
+			} 
+			
+			
+		} else if(contact instanceof CustomerContact) {
+			
+			CustomerContact customerContact = (CustomerContact) contact;
+			
+			System.out.println("변경하고자하는 거래처 이름을 입력해 주세요. (현재값 : " + customerContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String company = sc.nextLine();
+			if(company != null && company.trim().length()>0) {
+				customerContact.setProduct(company);
+			} 
+			
+			System.out.println("변경하고자하는 거래품목을 입력해 주세요. (현재값 : " + customerContact.getProduct() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String product = sc.nextLine();
+			if(product != null && product.trim().length()>0) {
+				customerContact.setProduct(product);
+			} 
+
+			System.out.println("변경하고자하는 직급을 입력해 주세요. (현재값 : " + customerContact.getManager() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String manager = sc.nextLine();
+			if(manager != null && manager.trim().length()>0) {
+				customerContact.setProduct(manager);
+			} 
+
+		} 	
+		
 		System.out.println("정보가 수정되었습니다. ");
 		System.out.println();
 		
@@ -212,6 +263,9 @@ public class SmartPhone {
 			return;
 		}
 		
+		System.out.println("입력하고자 하는 친구 타입을 선택해주세요.");
+		System.out.println("1. 회사 동료 \t2. 거래처");
+		int select = Integer.parseInt(sc.nextLine());
 		
 		// 1. 배열에 인스턴스 저장하고
 		String name = null;
@@ -236,8 +290,37 @@ public class SmartPhone {
 		System.out.print("그룹 > ");
 		group = sc.nextLine();
 		
+		Contact contact = null;
+		
+		// 분기 1. 회사 2. 거래처 
+		if(select == 1) {
+			// CompanyContact 인스턴스 생성  
+			
+			System.out.print("회사이름 > ");
+			String company = sc.nextLine();
+			System.out.print("부서이름 > ");
+			String division = sc.nextLine();
+			System.out.print("직급 > ");
+			String manager = sc.nextLine();
+			
+			contact = new CompanyContact(name, phoneNumber, email, address, birthday, group, company, division, manager);
+			
+		}else {
+			// CustomerContact 인스턴스 생성
+			
+			System.out.print("거래처이름 > ");
+			String company = sc.nextLine();
+			System.out.print("거래품목 > ");
+			String product = sc.nextLine();
+			System.out.print("직급 > ");
+			String manager = sc.nextLine();
+			
+			contact = new CustomerContact(name, phoneNumber, email, address, birthday, group, company, product, manager);
+			
+		}
+		
 		// 3. 인스턴스 생성
-		Contact contact = new Contact(name, phoneNumber, email, address, birthday, group);
+//		Contact contact = new Contact(name, phoneNumber, email, address, birthday, group);
 		
 		// 4. 배열에 인스턴스의 참조값을 저장
 		
