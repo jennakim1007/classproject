@@ -64,6 +64,7 @@ public class CustomerContact extends Contact{
 		System.out.println("직급 : " + this.manager);
 	}
 	
+
 	
 	
 	
@@ -74,6 +75,8 @@ public class CustomerContact extends Contact{
 		contact.showContact();
 		
 	}
+
+
 	
 	
 	

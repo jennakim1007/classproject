@@ -52,6 +52,10 @@ public class CompanyContact extends Contact {
 		System.out.println("직급 : " + this.manager);
 	}
 	
+
+	
+	
+	
 	
 	// 테스트
 	public static void main(String[] args) {
@@ -60,6 +64,8 @@ public class CompanyContact extends Contact {
 		contact.showContact();
 		
 	}
+
+
 	
 	
 	
