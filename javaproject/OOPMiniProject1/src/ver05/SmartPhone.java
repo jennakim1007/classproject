@@ -408,19 +408,20 @@ public class SmartPhone {
 			}
 		
 		return name;
+		}
+		
 	}
 	
 	// 전화번호를 받아서 중복된 전화번호가 있는지 체크하고 중복되지 않는 전화번호를 받아서 반환 
 		
 	private String getPhoneNumber() {
-		
 		String phoneNumber = null;
 		
 		while(true) {
 		
 			phoneNumber = sc.nextLine();
 			
-			if(phoneNumber!=0 && phoneNumber.trim().length()>0) {
+			if(phoneNumber!=null && phoneNumber.trim().length()>0) {
 				
 				boolean check = false;
 				
@@ -444,26 +445,12 @@ public class SmartPhone {
 		
 		}
 		
-		
-		
 		return phoneNumber;
 		
 	}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	
 
 	}	
 	
 	
 	
-}
+
