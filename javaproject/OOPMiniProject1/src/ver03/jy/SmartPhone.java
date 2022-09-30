@@ -186,12 +186,57 @@ public class SmartPhone {
 		
 		if(newGroup != null && newGroup.trim().length()>0) {
 			contact.setGroup(newGroup);
+		}
+		
+		if(contact instanceof CompanyContact) {
+			
+			CompanyContact companyContact = (CompanyContact)contact;
+			
+			System.out.println("변경하고자 하는 회사이름을 입력해 주세요.(현재값 : " + companyContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newCompany = sc.nextLine();
+			if(newCompany != null && newCompany.trim().length()>0) {
+				companyContact.setCompany(newCompany);
+			}
+			
+			System.out.println("변경하고자 하는 부서이름을 입력해 주세요.(현재값 : " + companyContact.getDivision() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newDivision = sc.nextLine();
+			if(newDivision != null && newDivision.trim().length()>0) {
+				companyContact.setDivision(newDivision);
+			}
+			
+			System.out.println("변경하고자 하는 직급을 입력해 주세요.(현재값 : " + companyContact.getManager() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newManager = sc.nextLine();
+			if(newManager != null && newManager.trim().length()>0) {
+				companyContact.setManager(newManager);
+			}
+		}
+		
+		if(contact instanceof CustomerContact) {
+			
+			CustomerContact customerContact = (CustomerContact)contact;
+			
+			System.out.println("변경하고자 하는 거래처이름을 입력해 주세요.(현재값 : " + customerContact.getCompany() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newCompany = sc.nextLine();
+			if(newCompany != null && newCompany.trim().length()>0) {
+				customerContact.setCompany(newCompany);
+			}
+			
+			System.out.println("변경하고자 하는 품목을 입력해 주세요.(현재값 : " + customerContact.getProduct() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newProduct = sc.nextLine();
+			if(newProduct != null && newProduct.trim().length()>0) {
+				customerContact.setProduct(newProduct);
+			}
+			
+			System.out.println("변경하고자 하는 직급을 입력해 주세요.(현재값 : " + customerContact.getManager() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+			String newManager = sc.nextLine();
+			if(newManager != null && newManager.trim().length()>0) {
+				customerContact.setManager(newManager);
+			}
+		}
 		
 		System.out.println("정보가 수정되었습니다. ");
 		System.out.println();
 		
-		}
-
 	}
 	
 	// 4. 연락처 삭제 (이름 검색 후 연락처 삭제, 중복 이름 없다고 가정)
