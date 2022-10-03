@@ -1,7 +1,5 @@
 package chapter09.test.jy;
 
-import chapter09.exam.Person;
-
 public class Person {
 	
 	// Person 클래스의 equals() 메소드를 오버라이딩해서 주민등록번호가 같으면 인스턴스로 판별하는 프로그램을 만들어봅시다. 

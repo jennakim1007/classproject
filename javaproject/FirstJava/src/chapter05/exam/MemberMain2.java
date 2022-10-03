@@ -4,7 +4,7 @@ public class MemberMain2 {
 
 	public static void main(String[] args) {
 
-		Member2 m1 = new Member2("손흥민", // 이름
+		Member m1 = new Member("손흥민", // 이름
 				"010-1111-2222", // 전화번호
 				"축구", // 전공
 				1, // 학년
@@ -13,10 +13,10 @@ public class MemberMain2 {
 				"런던" // 주소
 		);
 
-		m1.showMemberInfo();
+		//m1.showMemberInfo();
 
-		Member2 m2 = new Member2("손흥민", "010-1111-2222", "축구", 1, "son@gmail.com");
-		m2.showMemberInfo();
+		Member m2 = new Member("손흥민", "010-1111-2222", "축구", 1, "son@gmail.com");
+		//m2.showMemberInfo();
 
 	}
 
