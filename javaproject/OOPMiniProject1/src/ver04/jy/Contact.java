@@ -1,7 +1,8 @@
 package ver04.jy;
 
 // Contact클래스가 ShowData인터페이스를 상속하면서 추상 메소드를 보유하는 관계로 생성
-public class Contact implements ShowData {
+// Contact클래스는 추상 메소드를 가지고 있어 추상클래스가 되는 형태로 정의
+public abstract class Contact implements ShowData {
 	
 	private String name;
 	private String phoneNumber;

@@ -52,6 +52,11 @@ public class CompanyContact extends Contact {
 		System.out.println("부서 : " + this.division);
 		System.out.println("직급 : " + this.manager);
 	}
+
+	@Override
+	public void showData() {
+		
+	}
 	
 	
 	
