@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class Person3 {
 
 	public static void main(String[] args) {
+		
+		// 사용자에게 이름을 입력 받아 입력 받은 문자열을 정상적인 문자열의 이름으로 표현하는지 판별하고, 
+		// 공백으로 입력되었는지도 판별하는 프로그램을 만들어봅시다
 
 		Scanner sc = new Scanner(System.in);
 		
