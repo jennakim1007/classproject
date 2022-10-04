@@ -43,7 +43,7 @@ public class SmartPhone {
 		
 		System.out.println("저장할 연락처 타입을 입력하세요.");
 		System.out.println("1. 회사 \t2. 고객");
-		int select = Integer.parseInt(sc.nextLine());
+		int select = Integer.parseInt(getString());
 		
 		String name = null;
 		String phoneNumber = null;
@@ -54,17 +54,17 @@ public class SmartPhone {
 		
 		System.out.println("입력을 시작합니다. ");
 		System.out.print("이름 > ");
-		name = sc.nextLine();
+		name = getString(); // 공백 체크 
 		System.out.print("전화번호 > ");
-		phoneNumber = sc.nextLine();
+		phoneNumber = getPhoneNumber();
 		System.out.print("이메일 > ");
-		email = sc.nextLine();
+		email = getString();
 		System.out.print("주소 > ");
-		address = sc.nextLine();
+		address = getString();
 		System.out.print("생일 > ");
-		birthday = sc.nextLine();
+		birthday = getString();
 		System.out.print("그룹 > ");
-		group = sc.nextLine();
+		group = getString();
 		
 		// 인스턴스 생성 
 		Contact contact = null;
@@ -72,22 +72,22 @@ public class SmartPhone {
 		if(select==1) {
 			
 			System.out.print("회사이름 > ");
-			String company = sc.nextLine();
+			String company = getString();
 			System.out.print("부서이름 > ");
-			String division = sc.nextLine();
+			String division = getString();
 			System.out.print("직급 > ");
-			String manager = sc.nextLine();
+			String manager = getString();
 			
 			contact = new CompanyContact(name, phoneNumber, email, address, birthday, group, company, division, manager);
 			
 		}else if(select==2){
 			
 			System.out.print("거래처이름 > ");
-			String company = sc.nextLine();
+			String company = getString();
 			System.out.print("거래품목 > ");
-			String product = sc.nextLine();
+			String product = getString();
 			System.out.print("직급 > ");
-			String manager = sc.nextLine();
+			String manager = getString();
 			
 			contact = new CustomerContact(name, phoneNumber, email, address, birthday, group, company, product, manager);
 			
@@ -128,7 +128,7 @@ public class SmartPhone {
 		
 		System.out.println("데이터 수정이 진행됩니다. ");
 		System.out.println("수정하고자 하는 이름을 입력해주세요. > ");
-		String name = sc.nextLine();
+		String name = getString();
 		
 		int searchIndex = -1; // index 값이 될 수 없는 음수를 넣어서 삭제할 수 없는 데이터 분류
 		
@@ -146,7 +146,7 @@ public class SmartPhone {
 		
 		System.out.println("데이터 수정을 진행합니다. ");
 		System.out.println("변경하고자하는 이름을 입력해 주세요. (현재값 : " + contact.getName() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
-		String newName = sc.nextLine();
+		String newName = getString();
 		
 		// trim-> 공백제거 // 사용자가 공백만 잘못치는 것 방지 등을 위해 사용하였음 
 		if(newName != null && newName.trim().length()>0) {
@@ -154,7 +154,7 @@ public class SmartPhone {
 		}
 		
 		System.out.println("변경하고자하는 전화번호를 입력해 주세요. (현재값 : " + contact.getPhoneNumber() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
-		String newPhoneNumber = sc.nextLine();
+		String newPhoneNumber = getPhoneNumber();
 		
 		if(newPhoneNumber != null && newPhoneNumber.trim().length()>0) {
 			contact.setPhoneNumber(newPhoneNumber);
@@ -301,5 +301,52 @@ public class SmartPhone {
 		System.out.println("원하시는 메뉴 번호를 입력해주세요. >");
 		
 	}
+	
+	// 입력 또는 수정할 때 공백 문자열을 입력 받으면 다시 입력 받도록 흐름을 만들어봅시다.
+	// 공백일 경우 다시 입력받도록 하는 메소드 
+	// private 쓴 이유 -> SmartPhone 에서만 쓰일 거라서..
+	private String getString() {
+		String str;
+		while(true) {
+			str = sc.nextLine();
+			if(str!=null && str.trim().length()!=0) {
+				break;
+			} else {
+				System.out.println("공백이 아닌 문자를 입력해주세요. ");
+			}
+		}
+		return str;
+	}
+	
+	// 입력할 때 전화번호가 같은 데이터가 입력되면 입력이 되지 않도록 흐름을 만들어봅시다.
+	private String getPhoneNumber() {
+		String phoneNumber;
+		while(true) {
+			phoneNumber = sc.nextLine();
+				// 공백 체크 
+			if(phoneNumber!=null && phoneNumber.trim().length()!=0) {
+				//전화번호 중복 여부 체크
+				boolean check = false;
+				for(int i=0; i<numOfContact; i++) {
+					if(phoneNumber.equals(contacts[i].getPhoneNumber())) {
+						check = true;
+						break;
+					}
+				}
+				if(check) {
+					System.out.println("중복된 전화번호가 존재합니다. 다시 입력해주세요.");
+				} else {
+					break;
+				}
+			} else {
+				System.out.println("공백은 허용하지 않습니다. 정상적인 문자를 입력하세요.");
+			}
+		}
+		return phoneNumber;
+	}
+	
+	
+	
+	
 	
 }
