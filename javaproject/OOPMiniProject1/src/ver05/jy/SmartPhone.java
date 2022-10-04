@@ -56,7 +56,7 @@ public class SmartPhone {
 		System.out.print("이름 > ");
 		name = getString(); // 공백 체크 
 		System.out.print("전화번호 > ");
-		phoneNumber = getPhoneNumber();
+		phoneNumber = getPhoneNumber(); // 공백, 중복 체크 
 		System.out.print("이메일 > ");
 		email = getString();
 		System.out.print("주소 > ");
