@@ -7,13 +7,12 @@ public class SmartPhoneMain {
 		SmartPhone sp = SmartPhone.getInstance();
 		
 		while(true) {
-			
-			sp.printMenu(); // 6. 전화번호부 보기 
-			
-			// Integer : 기본형 타입을 객체로 만들 때 사용하는 클래스
-			int select = Integer.parseInt(sp.sc.nextLine());
-			
 			try {
+				sp.printMenu(); // 6. 전화번호부 보기 
+				
+				// Integer : 기본형 타입을 객체로 만들 때 사용하는 클래스
+				int select = Integer.parseInt(sp.sc.nextLine());
+				
 				if(!(select>0 && select<=6)) {
 					throw new MenuBadInputException(select);
 				}	
