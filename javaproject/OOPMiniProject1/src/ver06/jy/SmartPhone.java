@@ -369,31 +369,40 @@ public class SmartPhone {
 //		return phoneNumber;
 //	}
 
-	// 전화번호 형식에 맞지 않을 때 예외처리를 하고 중복될 때 예외 상황이 발생하도록 하고 예외 처리를 합시다
+	// 전화번호 형식에 맞지 않을 때 예외처리를 하고, 중복될 때 예외 상황이 발생하도록 하고 예외 처리를 합시다
 	private String getPhoneNumber() {
 		String phoneNumber = null;
-		while(true) {
+		while (true) {
 			try {
 				phoneNumber = sc.nextLine();
-				boolean chk1 = Pattern.matches("^\\d{2,3}-\\d{3,4}-\\d{4}$	", phoneNumber); //형식체크1
-				boolean chk2 = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNumber); //형식체크2
-				boolean chk3 = false; // 중복체크
-				boolean chk4 = false; // 공백체크  
+				boolean chk1 = Pattern.matches("[0-9]*$", phoneNumber); // 숫자만 입력 
+				boolean chk2 = phoneNumber.isBlank(); // 공백체크
+				boolean chk3 = false; // 중복체크 
+				
 				for(int i=0; i<numOfContact; i++) {
 					if(phoneNumber.equals(contacts[i].getPhoneNumber())) {
 						chk3 = true;
+						break;
 					}
 				}
-				if(phoneNumber!=null && phoneNumber.trim().length()!=0) {
-					chk4 = true;
-				}
-				if(!chk1 || !chk2 || chk3 || !chk4) {
+				
+				if(chk3) {
+					System.out.println("중복된 전화번호가 존재합니다. 다시 입력해주세요.");
+				} else if(!chk1 || chk2) {
 					throw new Exception();
-				} break;
-			}catch(Exception e){
-				System.out.println("형식에 맞게 입력하세요. /'nnn-nnnn-nnnn/' /'nnnnnnnnnnn/' 과 같이 입력 가능합니다. ");
+				} else {
+					break;
+				}
+			} catch(Exception e) {
+				System.out.println("숫자 형식에 맞게 입력해주세요. ");
 			}
-		}
+		}	
 		return phoneNumber;
 	}
+	
+	
+	
+	
+	
+	
 }
