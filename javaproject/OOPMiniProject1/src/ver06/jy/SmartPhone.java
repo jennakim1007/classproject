@@ -322,6 +322,7 @@ public class SmartPhone {
 	}
 
 	// 연락처 이름 이력 시에 공백에 대한 예외처리와 영문자와 한글만 허용하는 예외 처리를 해봅시다
+	// 영문자와 한글만 입력하고 공백일 경우 다시 입력받도록 하는 메소드 
 	private String getName() {
 		String name = null;
 		while (true) {
@@ -370,6 +371,7 @@ public class SmartPhone {
 //	}
 
 	// 전화번호 형식에 맞지 않을 때 예외처리를 하고, 중복될 때 예외 상황이 발생하도록 하고 예외 처리를 합시다
+	// 숫자만 입력하고 공백이거나 중복일 경우 다시 입력하도록 하는 메소드 
 	private String getPhoneNumber() {
 		String phoneNumber = null;
 		while (true) {
