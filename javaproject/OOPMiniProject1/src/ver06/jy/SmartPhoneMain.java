@@ -33,9 +33,9 @@ public class SmartPhoneMain {
 				case 5 : // 5. 연락처 전체 출력	
 					sp.printAllData();
 					break;
-					case 6 : // 종료
-						System.out.println("프로그램을 종료합니다. ");
-						return;
+				case 6 : // 종료
+				System.out.println("프로그램을 종료합니다. ");
+					return;
 				}
 			} catch (MenuBadInputException e){
 				System.out.println(e.getMessage());
