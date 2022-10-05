@@ -152,8 +152,7 @@ public class SmartPhone {
 			contact.setName(newName);
 		}
 
-		System.out
-				.println("변경하고자하는 전화번호를 입력해 주세요. (현재값 : " + contact.getPhoneNumber() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
+		System.out.println("변경하고자하는 전화번호를 입력해 주세요. (현재값 : " + contact.getPhoneNumber() + ")\n" + "변경하지 않으려면, 엔터를 치세요. >");
 		String newPhoneNumber = getPhoneNumber();
 
 		if (newPhoneNumber != null && newPhoneNumber.trim().length() > 0) {
