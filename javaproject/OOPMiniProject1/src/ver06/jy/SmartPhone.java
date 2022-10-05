@@ -403,6 +403,4 @@ public class SmartPhone {
 	
 	
 	
-	
-	
 }
