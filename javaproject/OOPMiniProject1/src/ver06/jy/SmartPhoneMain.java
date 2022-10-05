@@ -36,9 +36,11 @@ public class SmartPhoneMain {
 				System.out.println("프로그램을 종료합니다. ");
 					return;
 				}
+			} catch (NumberFormatException e) {
+				System.out.println("1~6 사이의 번호를 입력해주세요. ");
 			} catch (MenuBadInputException e){
 				System.out.println(e.getMessage());
-			}
+			} 
 
 		}
 		
