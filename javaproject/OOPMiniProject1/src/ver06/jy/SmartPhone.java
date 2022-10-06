@@ -376,7 +376,7 @@ public class SmartPhone {
 		while (true) {
 			try {
 				phoneNumber = sc.nextLine();
-				boolean chk1 = Pattern.matches("[0-9]*$", phoneNumber); // 숫자만 입력 
+				boolean chk1 = Pattern.matches("^\\d{3}-\\d{4}-\\d{4}+$", phoneNumber); // 입력 형식 nnn-nnnn-nnnn
 				boolean chk2 = phoneNumber.isBlank(); // 공백체크
 				boolean chk3 = false; // 중복체크 
 				
@@ -395,7 +395,7 @@ public class SmartPhone {
 					break;
 				}
 			} catch(Exception e) {
-				System.out.println("숫자 형식에 맞게 입력해주세요. ");
+				System.out.println("000-0000-0000 숫자 형식에 맞게 입력해주세요. ");
 			}
 		}	
 		return phoneNumber;
