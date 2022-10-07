@@ -19,7 +19,7 @@ public class HttpURLConnectionTest2 {
 			HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 			InputStream in = connection.getInputStream();
 			
-			for(int i=1; i<8; i++) {
+			for(int i=1; i<16; i++) {
 				System.out.println(connection.getHeaderFieldKey(i) + " = " + connection.getHeaderField(i));
 			}
 			
