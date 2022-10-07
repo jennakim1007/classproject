@@ -14,7 +14,7 @@ public class SalesMain {
 		try {
 			c1.start();
 			c2.start();
-			Thread.sleep(30000);
+			Thread.sleep(3000);
 			seller.start();
 			c1.join();
 			c2.join();
