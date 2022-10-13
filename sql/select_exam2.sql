@@ -38,3 +38,4 @@ where name like '김%';
 select name, address
 from customer
 where name like '김%' and name like '%아';
+-- where name like '김%아';
