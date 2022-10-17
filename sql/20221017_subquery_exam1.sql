@@ -33,14 +33,18 @@ having avg(sal)=(select min(avg(sal)) from emp group by job)
 
 
 
-
 -- 48. 담당업무가 ANALYST 인 사원보다 급여가 적으면서 업무가 ANALYST가 아닌 사원들을 표시(사원번호, 이름, 담당 업무, 급여)하시오.
 
 -- 49. 부하직원이 없는 사원의 이름을 표시하시오.
 
+
+
 -- 50. 부하직원이 있는 사원의 이름을 표시하시오.
 
 -- 51. BLAKE와 동일한 부서에 속한 사원의 이름과 입사일을 표시하는 질의를 작성하시오. ( 단 BLAKE는 제외 )
+
+
+
 
 -- 52. 급여가 평균 급여보다 많은 사원들의 사원 번호와 이름을 표시하되 결과를 급여에 대해서 오름차순으로 정렬하시오.
 
@@ -56,12 +60,7 @@ having avg(sal)=(select min(avg(sal)) from emp group by job)
 
 -- 58. 평균급여가 가장 적은 업무를 찾으시오.
 
-select job, (select min(avg(sal)) from emp group by job)
-from emp
 
-;
-
-select min(avg(sal)) from emp group by job;
 
 -- 59. 담당업무가 MANAGER 인 사원이 소속된 부서와 동일한 부서의 사원을 표시하시오.
 

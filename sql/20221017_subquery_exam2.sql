@@ -1,15 +1,34 @@
 -- 221017 SubQuery exam.02
 
+select * from orders;
+select * from customer;
+select * from book;
+
 -- 1. 마당서점의고객이요구하는다음질문에대해SQL 문을작성하시오.
 -- (5) 박지성이구매한도서의출판사수
 
+select count(publisher)
+from book, customer, orders
+where book.bookid=orders.bookid and orders.custid=customer.custid and name='박지성'
+;
+
 -- (6) 박지성이구매한도서의이름, 가격, 정가와판매가격의차이
+
+select b.bookname, b.price, b.price-o.saleprice as pricegap
+from book b, customer c, orders o
+where b.bookid=o.bookid and o.custid=c.custid and name='박지성'
+;
 
 -- (7) 박지성이구매하지않은도서의이름
 
 
+
+
 -- 2. 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.
 -- (8) 주문하지않은고객의이름(부속질의사용)
+
+
+
 
 -- (9) 주문금액의총액과주문의평균금액
 
