@@ -97,6 +97,11 @@ from emp e, (select deptno, ename from emp where ename like'%M%') e1
 where sal>(select avg(sal) from emp) and e.deptno=e1.deptno
 ;
 
+select empno, ename, sal
+from emp
+where sal>(select avg(sal) from emp) and deptno in(select deptno from emp where ename like'%M%')
+;
+
 -- 58. 평균급여가 가장 적은 업무를 찾으시오.
 select job, avg(sal) 
 from emp 
@@ -108,6 +113,11 @@ having avg(sal)=(select min(avg(sal)) from emp group by job)
 select ename
 from emp, (select job, deptno from emp where job='MANAGER') e
 where emp.deptno=e.deptno
+;
+
+select ename
+from emp
+where deptno in(select deptno from emp where job='MANAGER')
 ;
 
 --------------------------------------------------------------
@@ -208,6 +218,8 @@ where deptno = (select deptno from dept where dname='RESEARCH')
 ;
 
 -- 57. 평균 월급보다 많은 급여를 받고 이름에 M이 포함된 사원과 같은 부서에서 근무하는 사원의 사원 번호, 이름, 급여를 표시하시오.
+
+
 
 -- 58. 평균급여가 가장 적은 업무를 찾으시오.
 
