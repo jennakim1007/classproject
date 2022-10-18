@@ -121,6 +121,7 @@ where deptno in(select deptno from emp where job='MANAGER')
 ;
 
 --------------------------------------------------------------
+--------------------------------------------------------------
 -- 221018 SubQuery exam.01
 
 -- 43. 사원 번호가 7788인 사원과 담당 업무가 같은 사원을 표시(사원 이름과 담당업무)하시오.
@@ -218,12 +219,28 @@ where deptno = (select deptno from dept where dname='RESEARCH')
 ;
 
 -- 57. 평균 월급보다 많은 급여를 받고 이름에 M이 포함된 사원과 같은 부서에서 근무하는 사원의 사원 번호, 이름, 급여를 표시하시오.
-
-
+select * 
+from emp
+where sal > (select avg(sal) from emp) and deptno in(select distinct deptno from emp where ename like '%M%')
+;
 
 -- 58. 평균급여가 가장 적은 업무를 찾으시오.
+select job, avg(sal) 
+from emp
+group by job
+having avg(sal)=(select min(avg(sal)) from emp group by job)
+;
 
 -- 59. 담당업무가 MANAGER 인 사원이 소속된 부서와 동일한 부서의 사원을 표시하시오.
+select *
+from emp
+where deptno in(select deptno from emp where job='MANAGER')
+;
+
+
+
+
+
 
 
 
