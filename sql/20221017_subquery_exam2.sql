@@ -21,16 +21,14 @@ where b.bookid=o.bookid and o.custid=c.custid and name='박지성'
 
 -- (7) 박지성이구매하지않은도서의이름
 
-select distinct bookname
-from orders o, customer c, book b
-where o.custid=c.custid and o.bookid=b.bookid
-and not name='박지성'
+select bookname
+from book
+where bookname not in(
+    select bookname from book b, orders o, customer c 
+    where b.bookid=o.bookid and c.custid=o.custid
+    and name='박지성'
+)
 ;
-
-
-
-
-
 
 -- 2. 마당서점의운영자와경영자가요구하는다음질문에대해SQL 문을작성하시오.
 -- (8) 주문하지않은고객의이름(부속질의사용)
@@ -39,10 +37,18 @@ and not name='박지성'
 
 
 -- (9) 주문금액의총액과주문의평균금액
+select sum(saleprice), avg(saleprice)
+from orders
+;
 
 -- (10) 고객의이름과고객별구매액
 
+
 -- (11) 고객의이름과고객이구매한도서목록
+select name, bookname
+from customer c, book b, orders o 
+where c.custid=o.custid and b.bookid=o.bookid
+;
 
 -- (12) 도서의가격(Book 테이블)과판매가격(Orders 테이블)의차이가가장많은주문
 
