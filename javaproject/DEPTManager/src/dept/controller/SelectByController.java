@@ -1,11 +1,12 @@
-package dept;
+package dept.controller;
 
 import java.util.List;
 
+import dept.Main;
 import dept.domain.Dept;
 import dept.service.SelectByService;
 
-public class SelectByController {
+public class SelectByController implements Controller {
 
 	SelectByService service = new SelectByService();
 	

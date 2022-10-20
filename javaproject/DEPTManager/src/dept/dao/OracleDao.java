@@ -14,95 +14,93 @@ public class OracleDao implements Dao {
 
 	@Override
 	public List<Dept> select(Connection conn) throws SQLException {
-		
-		// 결과 데이터 
+
+		// 결과 데이터
 		List<Dept> list = new ArrayList<>();
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+
 		try {
 			stmt = conn.createStatement();
-			
-			String sql="select * from dept";
+
+			String sql = "select * from dept";
 			rs = stmt.executeQuery(sql);
-		
-			while(rs.next()) {
-				//  각 행의 데이터를 Dept 객체로 생성 -> List 추가 
-				// list.add(new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc")));
+
+			while (rs.next()) {
+				// 각 행의 데이터를 Dept 객체로 생성 -> List 추가
+				// list.add(new Dept(rs.getInt("deptno"), rs.getString("dname"),
+				// rs.getString("loc")));
 				list.add(rowToDept(rs));
 			}
-		
 		} finally {
-			if(rs!=null) {
+			if (rs != null) {
 				rs.close();
 			}
-			if(stmt!=null) {
+			if (stmt != null) {
 				stmt.close();
 			}
 		}
-		
+
 		return list;
-		
 	}
 
 	@Override
 	public Dept selectByDeptno(Connection conn, int deptno) throws SQLException {
-		
+
 		Dept dept = null;
-		
-		String sql="select * from dept where deptno=?";
-		
+
+		String sql = "select * from dept where deptno=?";
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, deptno); 
-			
+			pstmt.setInt(1, deptno);
+
 			rs = pstmt.executeQuery();
-					
-			if(rs.next()) {
-				// dept = new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc"));
+
+			if (rs.next()) {
 				dept = rowToDept(rs);
-			} 
+			}
 		} finally {
-			if(rs!=null) {
+			if (rs != null) {
 				rs.close();
 			}
-			if(pstmt!=null) {
+			if (pstmt != null) {
 				pstmt.close();
 			}
 		}
-		
+
 		return dept;
 	}
-	
+
 	private Dept rowToDept(ResultSet rs) throws SQLException {
-		return new Dept(rs.getInt("detpno"), rs.getString("dname"), rs.getString("loc"));
+		return new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc"));
 	}
 
 	@Override
 	public int insert(Connection conn, Dept dept) throws SQLException {
-		
+
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		// 입력 처리 
-		String sql="insert into dept values (?,?,?)";
-		
+
+		// 입력 처리
+		String sql = "insert into dept values (?, ?, ?)";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dept.getDeptno()); 
+			pstmt.setInt(1, dept.getDeptno());
 			pstmt.setString(2, dept.getDname());
 			pstmt.setString(3, dept.getLoc());
-	
+
 			result = pstmt.executeUpdate();
 		} finally {
-			if(pstmt!=null) {
+			if (pstmt != null) {
 				pstmt.close();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -111,49 +109,46 @@ public class OracleDao implements Dao {
 
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
-		String sql="update dept set dname=?, loc=? where deptno=?";
-		
+
+		String sql = "update dept set dname=?, loc=? where deptno=?";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dept.getDname());
 			pstmt.setString(2, dept.getLoc());
-			pstmt.setInt(3, dept.getDeptno()); 
-	
+			pstmt.setInt(3, dept.getDeptno());
+
 			result = pstmt.executeUpdate();
-		} finally{
-			if(pstmt!=null) {
+		} finally {
+			if (pstmt != null) {
 				pstmt.close();
 			}
-			
 		}
+
 		return result;
 	}
 
 	@Override
 	public int delete(Connection conn, int deptno) throws SQLException {
-		
+
 		int result = 0;
 		PreparedStatement pstmt = null;
-		
+
 		// 삭제 처리
-		String sql="delete from dept where deptno=?";
-		
+		String sql = "delete from dept where deptno=?";
+
 		try {
-			// conn.prepareStatement(sql);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, deptno); 
+			pstmt.setInt(1, deptno);
+	
 			result = pstmt.executeUpdate();
 		} finally {
-			if(pstmt!=null) {
+			if(pstmt != null) {
 				pstmt.close();
-
 			}
 		}
-		
+
 		return result;
 	}
-
-
 
 }

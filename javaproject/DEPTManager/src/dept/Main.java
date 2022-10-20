@@ -1,6 +1,18 @@
 package dept;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+
+import dept.controller.Controller;
+import dept.controller.DeleteController;
+import dept.controller.ExitController;
+import dept.controller.InsertController;
+import dept.controller.SelectByController;
+import dept.controller.SelectController;
+import dept.controller.UpdateController;
 
 public class Main {
 
@@ -8,7 +20,26 @@ public class Main {
 	
 	public static void main(String[] args) {
 
+		Command command = new Command();
+		
 		// Controller controller = new Controller();
+		
+//		List<Controller> list = new ArrayList<>();
+//		list.add(null);
+//		list.add(new SelectController());
+//		list.add(new SelectByController());
+//		list.add(new InsertController());
+//		list.add(new UpdateController());
+//		list.add(new DeleteController());
+//		list.add(new ExitController());
+//		
+//		Map<Integer, Controller> command = new HashMap<>();
+//		command.put(1, new SelectController());
+//		command.put(2, new SelectByController());
+//		command.put(3, new InsertController());
+//		command.put(4, new UpdateController());
+//		command.put(5, new DeleteController());
+//		command.put(6, new ExitController());
 		
 		while(true) {
 			
@@ -17,33 +48,36 @@ public class Main {
 			System.out.println("메뉴를 입력하세요. >> ");
 			int select = Integer.parseInt(sc.nextLine());
 			
-			switch(select) {
-			case 1 : 
-				// controller.select();
-				new SelectController().process();
-				break;
-			case 2 :
-				// controller.selectByDeptno();
-				new SelectByController().process();
-				break;
-			case 3 :
-				// controller.insert();
-				break;
-			case 4 :
-				// controller.update();
-				break;
-			case 5 : 
-				// controller.delete();
-				break;
-			case 6 :
-				// controller.exit();
-			}
+			// list.get(select).process();
+			command.command.get(select).process();;
+			
+//			switch(select) {
+//			case 1 : 
+//				// controller.select();
+//				new SelectController().process();
+//				break;
+//			case 2 :
+//				// controller.selectByDeptno();
+//				new SelectByController().process();
+//				break;
+//			case 3 :
+//				// controller.insert();
+//				new InsertController().process();
+//				break;
+//			case 4 :
+//				// controller.update();
+//				new UpdateController().process();
+//				break;
+//			case 5 : 
+//				// controller.delete();
+//				new DeleteController().process();
+//				break;
+//			case 6 :
+//				// controller.exit();
+//				new ExitController().process();
+//			}
 			
 		}
-		
-		
-		
-		
 
 	}
 

@@ -15,7 +15,13 @@ public class SelectService {
 	// Controller 에서 요청한 결과를 생성하고 반환 
 	// 필요한 DB 작업은 Dao 를 통해서 작업 
 	
-	Dao dao = new OracleDao();
+	// Dao dao = new OracleDao(); // 의존한다! -> 다른 클래스의 인스턴스를 생성하는 부분 
+	
+	Dao dao;
+	
+	public SelectService(Dao dao) {
+		this.dao=dao;
+	}
 	
 	public List<Dept> select(){
 		
