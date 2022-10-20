@@ -1,7 +1,6 @@
 package dept.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -92,12 +91,12 @@ public class OracleDao implements Dao {
 		String sql="insert into dept values (?,?,?)";
 		
 		try {
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, dept.getDeptno()); 
-		pstmt.setString(2, dept.getDname());
-		pstmt.setString(3, dept.getLoc());
-
-		result = pstmt.executeUpdate();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dept.getDeptno()); 
+			pstmt.setString(2, dept.getDname());
+			pstmt.setString(3, dept.getLoc());
+	
+			result = pstmt.executeUpdate();
 		} finally {
 			if(pstmt!=null) {
 				pstmt.close();
@@ -117,7 +116,6 @@ public class OracleDao implements Dao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setString(1, dept.getDname());
 			pstmt.setString(2, dept.getLoc());
 			pstmt.setInt(3, dept.getDeptno()); 
@@ -142,7 +140,8 @@ public class OracleDao implements Dao {
 		String sql="delete from dept where deptno=?";
 		
 		try {
-			conn.prepareStatement(sql);
+			// conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, deptno); 
 			result = pstmt.executeUpdate();
 		} finally {
