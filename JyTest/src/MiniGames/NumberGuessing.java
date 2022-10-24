@@ -46,7 +46,7 @@ public class NumberGuessing {
 
 			} else if (playerNumber == correctNumber) {
 				System.out.println("정답입니다!");
-				score++;
+				score+=10;
 				System.out.println("점수는 " + score + "점 입니다.");
 				System.out.println("계속 플레이 하시겠습니까? (네/아니요) ");
 				if (sc.nextLine().equals("네")) {
@@ -65,4 +65,7 @@ public class NumberGuessing {
 
 	} // main
 
+
+	
+	
 }
