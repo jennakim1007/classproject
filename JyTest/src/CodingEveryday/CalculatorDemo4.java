@@ -10,6 +10,15 @@ class Calculator {
 		this.right=right;
 	}
 	
+	public Calculator(int left, int right) {
+		super();
+		this.left = left;
+		this.right = right;
+	}
+
+	public Calculator() {
+	}
+
 	public void sum() {
 		System.out.println(this.left+this.right);
 	}
@@ -34,6 +43,10 @@ class Calculator {
 		c2.setOprands(20, 40);
 		c2.sum();
 		c2.avg();
+		
+		Calculator c3 = new Calculator(10, 20);
+		c3.sum();
+		c3.avg();
 		
 	}
 	
