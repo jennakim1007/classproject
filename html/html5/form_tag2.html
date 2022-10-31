@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* . 을 찍고 바디에서 지정한 클래스 선택하여 속성 부여 */
+        .input{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- 액션 뒤에 사용자가 처리할 경로가 나온다
+    #을 사용하여 현재 페이지로 보낼 수도 있다.  -->
+
+    <!-- method : Get / Post -->
+    <form action="#" method="post">
+
+        <!-- name -> 파라미터 속성이 됨  
+        username = 사용자가 입력한 문자열-->
+        <!-- id -> 자바 스크립터에서 식별자로 사용 -->
+        <!-- value -> 디폴트값 -->
+        <!-- class -> css 와 관련 : 스타일을 부여하기 위한 식별자로 사용 -->
+        <input type="text" name="username" id="username" value="cool" readonly disabled class="input"><br>
+        <input type="password" name="password" id="password" class="input" required><br>
+        <input type="checkbox"> 개인정보 활용 동의 <br>
+        <input type="checkbox" name="lang" value="java" checked> JAVA 
+        <input type="checkbox" name="lang" value="Mysql"> Mysql 
+        <input type="checkbox" name="lang" value="Html5"> Html5 
+        <hr>
+        <input type="radio" name="like" value="music"> 음악    
+        <input type="radio" name="like" value="book"> 독서    
+        <input type="radio" name="like" value="movie" checked> 영화    
+        <hr>
+        <input type="date" name="date">
+        <input type="time" name="time">
+        <input type="datetime-local">
+        <input type="month">
+        <input type="week">
+        <hr>
+        <input type="file">
+        <hr>
+        나이 <input type="number">
+        <hr>
+        이메일 <input type="email" name="email" id="email">
+        <hr>
+        전화번호 <input type="tel">
+        <hr>
+        url <input type="url">
+        <hr>
+        <input type="image" src="mini2.jpg" width="50">
+        <hr>
+        <input type="range" name="age" min="1" max="200">
+        <hr>
+        <select name="year" id="">
+            <option value="2022"> 2022 </option>
+            <option value="2021"> 2021 </option>
+        </select>
+        <hr>
+        <textarea name="" id="" cols="20" rows="10">내용을 입력하세요. 
+        </textarea>
+        <input type="hidden" name="userid" value="cool"> 화면에 보여지지 않는 값 
+        <hr>
+        <!-- submit, reset, button 의 value 는 화면에 보이는 값 -->
+        <input type="submit" value="가입">
+        <input type="reset" value="다시쓰기">
+        <input type="button" value="버튼">
+        <button>전송하기 버튼</button>
+
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+    선택자 {속성이름 : 속성값; 속성이름 : 속성 값; ....}
+    */
+
+        /* 전체 선택 */
+        * {
+            color: rosybrown;
+
+        }
+
+        /* 태그 선택자 */
+        h1 {
+            background-color: rgb(64, 37, 68);
+        }
+
+        p {
+            background-color: rosybrown;
+            color: rgb(8, 2, 8);
+            font-weight: bold;
+        }
+
+        body,
+        h1,
+        p {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            border: 1px solid #c48d8d62;
+            margin: 10px;
+        }
+
+        /* 아이디 선택자 #아이디이름 */
+        #header {
+            background-color: gainsboro;
+            padding: 10px;
+        }
+
+        #aside {
+            background-color: honeydew;
+            color: cadetblue;
+            width: 100px;
+            height: 100px;
+        }
+
+        #content {
+            background-color: darkseagreen;
+            color: #ffffff;
+        }
+
+        #footer {
+            background-color: beige;
+            color: darkgreen;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* 클래스 선택 .클래스이름 */
+        .font_bold {
+            font-weight: bold;
+        }
+
+        .font_itelic {
+            font-style: italic;
+        }
+
+        .font_size32 {
+            font-size: 32px;
+        }
+
+        /* 속성 선택자 */
+        input[type] {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        input[type=text] {
+            background-color: rgb(204, 195, 195);
+        }
+
+        input[type=password] {
+            background-color: whitesmoke;
+
+        }
+
+        img[src] {
+            margin: 1px;
+            padding: 10px;
+        }
+
+        img[src$=jpg] {
+            border: 5px solid rgb(255, 251, 0);
+        }
+
+        /* 범위 지정해서 선택하는 자손/후손 선택자 */
+        /* > 자손 공백( ) 후손 */
+        #div1>h1 {
+            color: darkseagreen;
+        }
+
+        #div1 h2 {
+            color: rgb(97, 226, 97);
+        }
+
+        #div1>h1,
+        #div1>h2 {
+            margin: 20px;
+        }
+
+        /* 동일한 위치(뎁스)에서 태그를 선택 : 동위선택자 */
+        /* 기준 -> 선택자 */
+        #div2>h1+h2 {
+            color: coral;
+        }
+
+        #div2>h1~h2 {
+            background-color: black;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* 반응선택자 */
+
+        h3 {
+            border: 3px solid #000;
+            width: 200px;
+        }
+
+        h3:hover {
+            color: #000;
+            background-color: yellow;
+            padding: 20px;
+            font-size: 32px;
+        }
+
+        h3:active {
+            font-size: 40px;
+            color: yellow;
+            background-color: #000;
+
+        }
+
+        #uname {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+            outline: 0;
+        }
+
+        /* 상태선택자 */
+        #uname:focus {
+            border: 10px solid rgb(255, 154, 171);
+        }
+
+        #chk:checked {
+            width: 50px;
+            height: 50px;
+            border: 10px solid rgb(255, 154, 171);
+            border-radius: 50%;
+            padding: 10px;
+
+        }
+
+        #uname:disabled {
+            background-color: gainsboro;
+        }
+
+        #menuCheck+div {
+            width: 300px;
+            background-color: gainsboro;
+            visibility: hidden;
+        }
+
+        #menuCheck:checked+div {
+            width: 300px;
+            background-color: gainsboro;
+            visibility: visible;
+        }
+
+        #menuCheck {
+            /* display: none; */
+        }
+
+        #menuLabel:hover {
+            padding: 10px;
+            background-color: bisque;
+            cursor: all-scroll;
+        }
+
+        #menuList {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        #menuList>li {
+            float: left;
+            padding: 10px 30px;
+            /* border: 1px solid gainsboro; */
+            background-color:silver;
+        }
+
+        #menuList>li:first-child {
+            /* border-radius: 좌측상단 우측상단 우측하단 좌측하단; */
+            border-radius: 30px 0px 0px 30px;
+        }
+        #menuList>li:last-child {
+            border-radius: 0px 30px 30px 0px;
+        }
+
+        #menuList>li:nth-child(2n+1) {
+            background-color: rgba(0, 0, 0, 0.055);
+        }
+
+        #menuList>li:nth-child(2n) {
+            background-color: rgba(0, 0, 0, 0.363);
+        }
+
+        p::selection {
+            background-color: khaki;
+            color: white;
+
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(252, 64, 95);
+            font-weight: bold;
+            text-decoration: dashed;
+        }
+
+        a:visited {
+            color: rgba(90, 90, 90, 0.74);
+        }
+
+        a:active {
+            color: red;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <ul id="menuList">
+
+        <li> <a href="#">home</a></li>
+        <li> <a href="http://naver.com">네이버</a></li>
+        <li> <a href="https://www.github.com">github</a></li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+
+    </ul>
+
+    <ul id="menuList2">
+
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+
+    </ul>
+
+    <hr>
+
+    <label id="menuLabel" for="menuCheck">check</label>
+    <input type="checkbox" id="menuCheck">
+    <div>
+        <h4>게임 타이틀</h4>
+        <p>요즘 제일 핫한 게임은 탕탕</p>
+    </div>
+
+    <hr>
+
+    <input type="text" id="uname">
+    <br>
+    <input type="checkbox" id="chk"> 체크
+
+
+    <hr>
+
+    <h3>action</h3>
+
+    <hr>
+
+    <div id="div2">
+        <h1>Header - 1</h1>
+        <h1>Header - 2</h1>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+        <h2>Header - 2</h2>
+    </div>
+
+    <div id="div1">
+
+        <h1>
+            div-heading 밥탐
+            <h2>div-div-heading 배거팡</h2>
+        </h1>
+        <h2>이제 약간 배 안거파 NICE</h2>
+        <ul>
+            <li>
+                <h1>li heading</h1>
+            </li>
+            <li>GOOD</li>
+            <li>li3</li>
+        </ul>
+
+    </div>
+
+    <hr>
+
+    <img src="../html5/mini2.jpg" height="50">
+    <img src="../html5/mini2.jpg" height="70">
+    <img src="../html5/mini2.jpg" height="100">
+
+
+    <hr>
+
+    <input type="text"> text <br>
+    <input type="password"> password <br>
+    <input type="email"> email
+
+    <hr>
+
+    <div id="header" class="font_bold font_itelic font_size32">header</div>
+    <div id="aside" class="font_size32">aside</div>
+    <div id="content" class="font_itelic">content</div>
+    <div id="footer" class="font_bold font_itelic">footer</div>
+
+
+    <h1> 제목 </h1>
+    <h1> 부제목 </h1>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum quasi fugiat eveniet blanditiis sequi atque
+        facere odio nobis consequatur adipisci! Iste delectus nulla fuga eligendi qui ipsum animi expedita facilis?</p>
+    <p class="font_itelic"> 내용 어쩌고 저쩌고 블라블라 </p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus asperiores amet officiis dolore
+        molestias quo, laudantium, a excepturi tenetur suscipit eum, quaerat accusamus? Sapiente maiores labore,
+        reiciendis earum fuga magni.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+
+
+</body>
+
+</html>
