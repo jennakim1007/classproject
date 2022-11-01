@@ -3,32 +3,112 @@
     padding: 0;
 }
 
-section {
-    background-color: #f2f5f7;
+body {
+    overflow-y: scroll;
+    font-size: 12px;
+
+}
+
+div {
+    display: block;
+}
+
+.background {
+    background-color: #f0f2f5;
+    min-width: 500px;
+    padding-bottom: 112px;
+    padding-top: 72px;
+}
+
+.screen {
     height: 496px;
-    margin: 0 40;
+    margin: 0 40px;
     width: auto;
-    overflow: auto;
+    padding: 20px 0;
+    position: relative;
 }
 
-#aside1 {
+.logo_wrap {
+    overflow: hidden;
     width: 400px;
-    padding-right: 32px;
+    box-sizing: border-box;
+    padding-right: 48px;
+    padding-top: 112px;
+    display: inline-block;
     vertical-align: top;
-    float: left;
-    margin-top: 100px;
-    margin-left: 10px;
 }
 
-#aside2 {
-    text-align: center;
-    float: right;
-    margin-top: 100px;
-    margin-right: 10px;
+section > h1 {
+    font-size: 64px;
+    color: #1877f2;
+    font-weight: bold;
 }
 
-#aside2 div {
-    width: 396px;
-    height: 315px;
+section > p {
+    font-size: 24px;
+    width: auto;
+    padding: 0 0 20px;
+}
+
+.aside_wrap {
+    /* float: right; */
+    vertical-align: top;
+    display: inline-block;
+}
+
+.login_wrap {
     background-color: white;
+    width: 396px;
+    text-align: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);    
+    box-sizing: border-box;
+    margin: 40px 0 0 0;
+    padding-bottom: 24px;
+    padding-top: 10px;
+}
+
+.input_login {
+    border: 1px solid#dddfe2;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    height: 22px;
+    line-height: 16px;
+    vertical-align: middle;
+    cursor: text;
+    margin-bottom: 10px;
+}
+
+.btn_login {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 48px;
+    padding: 0 18px;
+    width: 332px;
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    box-sizing: content-box;
+}
+
+.btn_new_account {
+    display: block;
+}
+
+.page_message {
+    color: #1c1e21;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+
+footer {
+    font-size: x-small;
+    color: grey;
 }
