@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+div {
+    display: block;
+}
+
+.container {
+    background-color: #f0f2f5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    min-height: 640px;
+    min-width: 500px;
+    padding-bottom: 164px;
+    padding-top: 20px;
+}
+
+.leftside_container {
+    padding-top: 200px;
+    width: 400px;
+}
+
+.leftside_container img[src] {
+    height: auto;
+    width: 300px;
+}
+
+.leftside_container > p {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.rightside_container {
+}
+
+.login_wrap {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    margin-top: 40px;
+    padding: 20px;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    border: 1px solid #dddfe2;
+    height: 22px;
+    margin-bottom: 10px;
+}
+
+.login_btn {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    width: 364px;
+    height: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.find_password{
+    color: #1877f2;
+    font-size: 14px;
+}
+
+.line {
+    border-bottom: 1px solid #dadde1;
+    margin: 20px 0;
+}
+
+.account_btn{
+    border: none;
+    border-radius: 6px;
+    height: 48px;
+    width: 151px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #42b72a;
+    color: #fff;
+    padding: 0 16px;
+}
