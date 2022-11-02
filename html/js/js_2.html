@@ -16,13 +16,53 @@ console.log('JS');
 
     // alert('Hi~!!');
     // console.log(confirm('삭제?'));
-    const str = prompt('나이 입력');
+
+    console.log(typeof Boolean(0), Boolean(0));
+    console.log(typeof Boolean(0), Boolean(0));
+    console.log(typeof Boolean(''), Boolean('aaa')); // 문자가 하나라도 있으면 true 반환 
+    console.log('[]',typeof Boolean([]), Boolean([]));
+    console.log('{}',typeof Boolean({}), Boolean({}));
+    console.log('null',typeof Boolean(null), Boolean(null));
+
+    // '' 0 null Nan undefined -> Boolean type 일 경우 false 반환 
+    let bool2 = !0; // -> true
+    console.log('bool2', bool2, typeof bool2);
+    let bool3 = NaN; 
+    console.log('bool3', bool3, typeof bool3, Boolean(bool3));
+
+
+
+    //////////////////////////////////////////////////////////////
+
+    let str1 = String(100);
+    console.log('str1', str1, typeof str1);
+    let bool1 = String(false);
+    console.log('bool1', bool1, typeof bool1);
+    let str2 = 100 + '';
+    let str3 = true + '';
+    console.log('str2', str2, typeof str2);
+    console.log('str3', str3, typeof str3);
+
+    /////////////////////////////////////////////////////////////
+    
+    // const str = prompt('금액 입력');
+    const str = 1000;
+
     // console.log(prompt('나이 입력'));
     console.log('str', str, typeof str);
 
     // Number(문자열) -> 생성자 함수 : String 을 숫자 형태로 변환 
+    // Nan : Not a Number 
     let num = Number(str);
     console.log('num', num, typeof num);
+
+    // parseInt(문자열) -> 숫자로 치환 정수 숫자만 받기, 문자가 먼저오면 뒤 숫자 인식 불가
+    let num1 = parseInt(str);
+    console.log('num1', num1, typeof num1);
+
+    // parseFloat(문자열) -> 숫자로 치환 실수 숫자만 받기, 문자가 먼저오면 뒤 숫자 인식 불가
+    let num2 = parseFloat(str);
+    console.log('num2', num2, typeof num2);
 
 
 </script>

@@ -26,11 +26,10 @@ div {
     background-color : #f0f2f5;
 }
 
-.screen {
+.wrap {
     margin: 0 40px;
     width: auto;
     position: relative;
-    display: inline-block;
 }
 
 .logo {
@@ -45,7 +44,6 @@ div {
 }
 
 .login {
-    float: right;
 }
 
 .loginbox {
