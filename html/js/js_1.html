@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        console.log('html 페이지에서 실행하는 javascript');
+
+        // 백틱
+        var str = `안녕
+        하세요`;
+        
+        var age = 11
+
+        console.log(100);
+        console.log(3.14);
+        console.log('String');
+        console.log('String \n str \t 문자열');
+        console.log("String");
+        console.log(true);
+        console.log(false);
+        console.log('안'+'녕');
+        console.log(`안녕하세요 저는 ${age}살 입니다. `);
+        console.log(str);
+        console.log('안녕하세요' [0]);
+        console.log('안녕하세요'.length);
+
+        console.log('10+20=', 10+20, '입니다.');
+        console.log('20-10=', 20-10);
+        console.log('10*20=', 10*20);
+        console.log('10/2=', 10/2);
+        console.log('10%3=', 10%3);
+
+        1 == '1'
+        1 === '1'
+        0 == false
+        0 === false
+        '' == false
+        '' === false
+        false == []
+        false == [1,2,3]
+        false == {}
+
+        // 자바스크립트에서 다루는 자료형
+        // typeof
+        console.log(typeof('String'));
+        console.log(typeof 100);
+        console.log(typeof 3.14);
+        console.log(typeof 100n);
+        console.log(typeof true);
+        console.log(typeof age); // age => 식별자 // 값 없을시 undefined
+        console.log(typeof {});
+        console.log(typeof []);
+        console.log(typeof function(){});
+        console.log(typeof Symbol());
+        
+        console.log('age2', age2);
+        var age2;
+
+        var num = 10;
+        console.log(num);
+
+        var num = 20; // var -> 여러 번 정의 가능
+        console.log(num);
+
+        // let, const : 블록 안에서의 생명주기 
+        {
+            let num1 = 10;
+            // let num1 = 20; // let -> 한 번 이상 정의 불가
+            num1 = 30;
+            const pi = 3.14;
+            // const pi = 3.141592; 
+            // pi = 3.141592; // const -> 상수 선언 : 재정의 불가
+        }
+
+        num += 10;
+        console.log(num);
+        console.log(++num)
+        console.log(num++)
+        console.log(num)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
