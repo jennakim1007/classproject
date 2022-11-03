@@ -1,18 +1,23 @@
+
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
-div {
-    display: block;
+.bg_gray{
+    background-color: red;
+}
+
+.wrap{
+    margin: 0 auto;
+    width: 980px;
 }
 
 .container {
-    background-color: #f0f2f5;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     min-height: 640px;
     min-width: 500px;
@@ -37,6 +42,8 @@ div {
 }
 
 .rightside_container {
+    display: flex;
+    align-items: center;
 }
 
 .login_wrap {
