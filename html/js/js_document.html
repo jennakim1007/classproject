@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        window.onload - function () {
+            let h1 = document.querySelector('h1');
+            console.log(h1);
+        }
+
+        // 이벤트 설정
+        // document.addEventListener('이벤트 이름', 핸들러 함수);
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 문서객체 생성 
+            let h1 = document.querySelector('h1');
+            console.log(h1, typeof h1);
+            console.log(h1.textContent);
+            console.log(h1.innerHTML);
+            console.log(h1.innerText);
+            
+            h1.textContent = 'HEADER';
+            console.log(h1.textContent);
+            h1.style.backgroundColor = 'green';
+            h1.style.color = 'red';
+            h1.style.padding = '10px';
+            h1.style.margin = '20px';
+            h1.style.fontSize = 'big';
+
+            ////////////////////////
+            let headers = document.querySelectorAll('h1');
+            console.log(headers.textContent);
+            headers.forEach((item)=> {
+                item.textContent = 'header'
+                item.style.backgroundColor = 'green'
+                item.style.color = 'red'
+            })
+
+            let header = document.getElementById('header');
+            header.textContent = 'last Header'
+
+            let div = document.querySelector('#msg');
+            // div.textContent='안녕하세요'
+            div.innerHTML='<h1>안녕하세요!!!!!!!!!!!!!!</h1>'
+
+            /////////////////////////////
+            // 속성 컨트롤
+            let link = document.querySelector('a');
+            let href=link.getAttribute('href');
+            console.log('href', href)
+            link.setAttribute('href','https://www.google.com')
+            link.setAttribute('link-index', 1)
+
+            let index = link.getAttribute('link-index');
+            console.log('index', index)
+
+            // 동적 요소 생성 -> 추가
+            let newElement = document.createElement('h2');
+            newElement.textContent = '동적으로 생성한 h2 태그';
+            newElement.style.backgroundColor = 'black';
+            newElement.style.color = 'yellow'
+            newElement.style.height = '200px'
+            
+            let newImg = document.createElement('img');
+            newImg.setAttribute('src', '../html5/mini2.jpg');
+            newImg.setAttribute('width', '150')
+
+            // target : 부모 태그 캐스팅
+            let wrap = document.querySelector('#wrap');
+
+            wrap.appendChild(newElement);
+            wrap.appendChild(newImg);
+
+            let body = document.body;
+            let removeTarget = document.querySelector('h3');
+            body.removeChild(removeTarget)
+
+            cnt = document.querySelector('#cnt');
+
+            const textarea = document.querySelector('textarea')
+            textarea.addEventListener('keyup', listener)
+
+
+        });
+
+        let cnt;
+
+        const listener = function(event){
+            const length = event.currentTarget.value.length
+            console.log(event.currentTarget.value)
+            cnt.textContent = `글자수 : ${length}`
+        }
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <h4>키보드 이벤트</h4>
+    <textarea></textarea>
+    <span id="cnt">글자 수 : </span>
+
+    <h3>문서객체 조작</h3>
+
+    <div id="wrap">
+
+    </div>
+
+    <hr>
+    
+    <h2><a href="https://www.naver.com">네이버??</a></h2>
+
+    <div id="msg">
+
+    </div>
+
+    <h1><i>안녕하세요</i></h1>
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+    <h1>안녕하세요</h1>
+    <h1 id="header">안녕하세요</h1>
+
+</body>
+</html>
