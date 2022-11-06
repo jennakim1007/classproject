@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
             idCheckMsg.appendChild(msg)
             msg.textContent = '영문자 대소문자, 숫자만 입력 가능합니다.'
             msg.style.color = 'red';
-        } 
+        } else {
+            
+        }
 
     })
 
