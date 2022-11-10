@@ -1,5 +1,7 @@
 package Todo;
 
+import com.sun.tools.javac.comp.Todo;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -18,9 +20,11 @@ public class TodoRegisterController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        String title = request.getParameter("title");
+        String date = request.getParameter("date");
+
         response.sendRedirect("/todo/list");
-
-
 
     }
 }
