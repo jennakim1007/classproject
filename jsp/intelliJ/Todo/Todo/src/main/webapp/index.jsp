@@ -11,5 +11,7 @@
 <a href="hello-servlet">Hello Servlet</a>
 <br>
 <a href="/todo/list">Todo List</a>
+<br>
+<a href="/todo/register">Todo List</a>
 </body>
 </html>
