@@ -18,7 +18,7 @@
 
 
 
-<a href="/todo/register">할 일 등록</a>
+<%--<a href="/todo/register">할 일 등록</a>--%>
 
 
 
