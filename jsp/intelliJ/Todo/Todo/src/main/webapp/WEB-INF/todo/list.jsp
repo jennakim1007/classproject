@@ -16,12 +16,19 @@
 
 <h3>Todo List</h3>
 
+<ul>
+<c:forEach var="num" begin="1" end="10">
+    <li>
+        <a href="/todo/read?no=${num}">
+            ${num}
+        </a>
+        제목
+        날짜
+    </li>
+</c:forEach>
+</ul>
 
-
-<%--<a href="/todo/register">할 일 등록</a>--%>
-
-
-
+<a href="/todo/register"> Todo 등록 </a>
 
 </body>
 </html>
