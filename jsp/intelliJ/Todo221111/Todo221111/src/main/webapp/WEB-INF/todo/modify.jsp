@@ -36,7 +36,7 @@
           </tr>
           <tr>
               <td>상태</td>
-              <td><input type="checkbox" name="checkbox" id="checkbox" value="1" ${todo.finished ? 'checked' : ''}></td>
+              <td><input type="checkbox" name="finished" value="1" ${todo.finished ? 'checked' : ''}></td>
           </tr>
           <tr>
               <td></td>
