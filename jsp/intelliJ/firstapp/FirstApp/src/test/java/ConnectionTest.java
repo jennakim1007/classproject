@@ -1,3 +1,4 @@
+import com.firstcoding.firstapp.util.ConnectionUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +16,20 @@ public class ConnectionTest {
 
         Assertions.assertNotNull(conn);
 
+        conn.close();
+
     }
 
+    @Test
+    public void testPoolConnection() throws Exception {
 
+        Connection conn = ConnectionUtil.getInstance().getConnection();
+        System.out.println(conn);
+        Assertions.assertNotNull(conn);
+
+        conn.close();
+
+    }
 
 
 }
