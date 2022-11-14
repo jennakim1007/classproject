@@ -29,8 +29,10 @@ public class DeptListController extends HttpServlet {
             // throw new RuntimeException(e);
         }
 
+        // view  페이지로 결과 데이터 전달(공유)
         request.setAttribute("list",list);
 
+        // view 페이지 지정
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/dept/list.jsp");
         dispatcher.forward(request, response);
 
