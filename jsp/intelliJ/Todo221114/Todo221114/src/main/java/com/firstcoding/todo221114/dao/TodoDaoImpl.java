@@ -29,7 +29,21 @@ public class TodoDaoImpl implements TodoDao {
 
     @Override
     public TodoDTO selectbyTodoDTO(Connection conn, int tno) throws SQLException {
-        return null;
+
+        TodoDTO todoDTO = null;
+        String sql = "select * from tbl_todo where tno=?";
+        @Cleanup PreparedStatement pstmt = conn.prepareStatement(sql);
+        @Cleanup ResultSet rs = null;
+        pstmt.setInt(1, tno);
+        rs = pstmt.executeQuery();
+        if(rs.next()){
+            todoDTO = rowToTodo(rs);
+        }
+        return todoDTO;
+    }
+
+    private TodoDTO rowToTodo(ResultSet rs) throws SQLException {
+        return new TodoDTO(rs.getInt("tno"),rs.getString("todo"),rs.getString("duedate"),rs.getBoolean("finished"));
     }
 
     @Override

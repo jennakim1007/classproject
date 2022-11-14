@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>할 일 등록</title>
+    <title>Todo Register</title>
 </head>
 <body>
 
-    <h1>register test</h1>
+    <h1>할 일 등록</h1>
 
     <form method="post">
         <table>

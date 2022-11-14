@@ -38,11 +38,10 @@ public class TodoRegisterController extends HttpServlet {
         try {
             service.insert(new TodoDTO(tno, todo, dueDate, finished));
         } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            response.sendRedirect("/todo/list");
-
+            // throw new RuntimeException(e);
         }
+
+        response.sendRedirect("/todo/list");
 
     }
 }
