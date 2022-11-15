@@ -16,26 +16,22 @@ public class MyPageController extends HttpServlet {
         log.info("MyPageController...doGet()");
 
         // 현재 로그인 중인지 확인
-        HttpSession session = request.getSession();
+        // HttpSession session = request.getSession();
 
-        if(session.isNew()){
-            log.info("비 로그인 상태 ...");
-            response.sendRedirect("/login");
-            return;
-        }
-
-        if(session.getAttribute("loginInfo")==null){
-            log.info("비 로그인 상태 ...");
-            response.sendRedirect("/login");
-            return;
-        }
-
+//        if(session.isNew()){
+//            log.info("비 로그인 상태 ...");
+//            response.sendRedirect("/login");
+//            return;
+//        }
+//
+//        if(session.getAttribute("loginInfo")==null){
+//            log.info("비 로그인 상태 ...");
+//            response.sendRedirect("/login");
+//            return;
+//        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp");
         dispatcher.forward(request, response);
-
-
-
 
     }
 

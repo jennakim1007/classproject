@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "MyPageController", value = "/mypage/myinfo")
+@WebServlet(name = "MyInfoController", value = "/mypage/myinfo")
 @Log4j2
 public class MyInfoController extends HttpServlet {
     @Override
@@ -20,23 +20,23 @@ public class MyInfoController extends HttpServlet {
         log.info("MyInfoController...doGet()");
 
         // 현재 로그인 중인지 확인
-        HttpSession session = request.getSession();
+        // HttpSession session = request.getSession();
 
-        if(session.isNew()){
-            log.info("비 로그인 상태 ...");
-            response.sendRedirect("/login");
-            return;
-        }
-
-        if(session.getAttribute("loginInfo")==null){
-            log.info("비 로그인 상태 ...");
-            response.sendRedirect("/login");
-            return;
-        }
-
+//        if(session.isNew()){
+//            log.info("비 로그인 상태 ...");
+//            response.sendRedirect("/login");
+//            return;
+//        }
+//
+//        if(session.getAttribute("loginInfo")==null){
+//            log.info("비 로그인 상태 ...");
+//            response.sendRedirect("/login");
+//            return;
+//        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp");
         dispatcher.forward(request, response);
+
 
 
 
