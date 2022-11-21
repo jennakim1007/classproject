@@ -26,7 +26,7 @@ public class LoginController {
     @PostMapping
     public String login(String uid, String pw, String p,
                         //@RequestParam(value = "p", required = true) String page)
-                        @RequestParam(value = "p", defaultValue = "1") String page,
+                        @RequestParam(value = "p", defaultValue = "1") int page,
                         HttpServletRequest request,
                         HttpServletResponse response,
                         @ModelAttribute("req") LoginRequest loginRequest,
@@ -45,7 +45,11 @@ public class LoginController {
         log.info("loginRequest = " + loginRequest);
         log.info("paramMap = " + paramMap);
 
-        return "login/login"; // "redirect:/index"
+        request.getSession().setAttribute("loginInfo", uid);
+
+        // return "login/login"; // "redirect:/index"
+        return "redirect:mypage/mypage1";
+
     }
 
     @GetMapping("/info") // 경로 매핑(추가 경로) => http://localhost:8080/login/info
