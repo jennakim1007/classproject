@@ -16,7 +16,7 @@
     <table>
       <tr>
         <td>아이디</td>
-        <td><input type="text" name="id" id="id"></td>
+        <td><input type="text" name="uid" id="uid"></td>
       </tr>
       <tr>
         <td>비밀번호</td>

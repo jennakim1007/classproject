@@ -41,10 +41,7 @@
         </table>
 
     <a href="/todo/register">Todo 등록하기</a>
-
-
-
-
+    <a href="/index">처음으로 돌아가기</a>
 
 </body>
 </html>

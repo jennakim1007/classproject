@@ -12,11 +12,13 @@
 </head>
 <body>
 
-  <form method="post">
+  <h1>회원가입</h1>
+
+  <form method="post" enctype="multipart/form-data">
     <table>
       <tr>
         <td>아이디</td>
-        <td><input type="text" name="id" id="id"></td>
+        <td><input type="text" name="uid" id="uid"></td>
       </tr>
       <tr>
         <td>비밀번호</td>
@@ -24,15 +26,15 @@
       </tr>
       <tr>
         <td>이름</td>
-        <td><input type="text" name="name" id="name"></td>
+        <td><input type="text" name="uname" id="uname"></td>
       </tr>
       <tr>
         <td>사진</td>
-        <td><input type="file" name="profilePic" id="profilePic"></td>
+        <td><input type="file" name="uphoto" id="uphoto"></td>
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="회원가입"></td>
+        <td><input type="submit" value="가입하기"></td>
       </tr>
     </table>
   </form>
