@@ -30,13 +30,16 @@ public class TodoModifyController {
     }
 
     @PostMapping
-    public String modify(@RequestParam("tno") int tno,
-                         @RequestParam("todo") String todo,
-                         @RequestParam("dueDate") String dueDate,
-                         @RequestParam(value = "finished", required = false) String finished // required false 반드시 들어오지 않아도 되는 값
-    ){
-
-        TodoDTO todoDTO = new TodoDTO(tno, todo, LocalDate.parse(dueDate), finished==null?false:true);
+    public String modify(
+//            @RequestParam("tno") int tno,
+//            @RequestParam("todo") String todo,
+//            @RequestParam("dueDate") String dueDate,
+//            @RequestParam(value = "finished", required = false
+//            String finished // required false 반드시 들어오지 않아도 되는 값
+              TodoDTO todoDTO
+                         )
+    {
+        // TodoDTO todoDTO = new TodoDTO(tno, todo, LocalDate.parse(dueDate), finished==null?false:true);
         log.info("todoDTO => " + todoDTO);
 
         todoService.modify(todoDTO);
