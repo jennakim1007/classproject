@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.manager.mapper.DeptMapper">
+    <!--namespace = 만들어둔 인터페이스 경로 풀네임-->
+
+    <select id="selectAll" resultType="com.app.manager.domain.DeptDTO">
+    <!-- 주의 : resultType 이 List가 아닌 DTO로 들어가고(받아야 하는 타입),
+    풀네임을 기재해야 함(혹은 별칭을 사용할 수 있도록 별도 설정) -->
+        select * from dept
+    </select>
+
+    <select id="selectByDeptno" resultType="com.app.manager.domain.DeptDTO">
+        select * from dept where deptno=#{deptno}
+    </select>
+
+    <insert id="insertDept" parameterType="com.app.manager.domain.DeptDTO">
+        insert into dept values(#{deptno}, #{dname}, #{loc})
+    </insert>
+
+    <update id="updateDept" parameterType="com.app.manager.domain.DeptDTO">
+        update dept set dname=#{dname}, loc=#{loc} where deptno=#{deptno}
+    </update>
+
+    <delete id="deletebyDeptno">
+        delete from dept where deptno=#{deptno}
+    </delete>
+
+
+</mapper>
