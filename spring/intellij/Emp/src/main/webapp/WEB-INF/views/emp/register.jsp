@@ -18,36 +18,36 @@
   <form method="post">
     <table>
       <tr>
-        <td>EMPNO</td>
+        <td>사원번호</td>
         <td><input type="number" name="empno" id="empno"></td>
       </tr>
       <tr>
-        <td>ENAME</td>
+        <td>사원이름</td>
         <td><input type="text" name="ename" id="ename"></td>
       </tr>
       <tr>
-        <td>JOB</td>
+        <td>직급</td>
         <td><input type="text" name="job" id="job"></td>
       </tr>
       <tr>
-        <td>MGR</td>
+        <td>관리자</td>
         <td><input type="number" name="mgr" id="mgr"></td>
       </tr>
       <tr>
       <tr>
-        <td>HIREDATE</td>
+        <td>입사일</td>
         <td><input type="date" name="hiredate" id="hiredate"></td>
       </tr>
       <tr>
-        <td>SAL</td>
+        <td>급여</td>
         <td><input type="number" name="SAL" id="SAL"></td>
       </tr>
       <tr>
-        <td>COMM</td>
+        <td>보너스</td>
         <td><input type="number" name="comm" id="comm"></td>
       </tr>
       <tr>
-        <td>DEPTNO</td>
+        <td>부서번호</td>
         <td>
           <select name="deptno" id="deptno">
             <option>10</option>

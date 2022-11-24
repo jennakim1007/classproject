@@ -14,17 +14,20 @@
 <body>
 
   <h1>Emp List</h1>
+  <hr>
+
+  <a href="/emp/register">사원 등록</a>
 
     <table border="1">
         <tr>
-            <th>EMPNO</th>
-            <th>ENAME</th>
-            <th>JOB</th>
-            <th>MGR</th>
-            <th>HIREDATE</th>
-            <th>SAL</th>
-            <th>COMM</th>
-            <th>DEPTNO</th>
+            <th>사원번호</th>
+            <th>사원이름</th>
+            <th>직급</th>
+            <th>관리자</th>
+            <th>입사일</th>
+            <th>급여</th>
+            <th>보너스</th>
+            <th>부서번호</th>
             <th>관리</th>
         </tr>
 
@@ -46,7 +49,7 @@
         </c:forEach>
     </table>
 
-    <a href="/emp/register">사원 등록</a>
+
 
 </body>
 </html>
