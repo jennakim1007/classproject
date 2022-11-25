@@ -13,5 +13,12 @@
         insert into dept values (#{deptno}, #{dname}, #{loc})
     </insert>
 
+    <update id="updateDept" parameterType="com.app.manager.domain.DeptDTO">
+        update dept set dname=#{dname}, loc=#{loc} where deptno=#{deptno}
+    </update>
+
+    <delete id="deleteDeptByDeptno">
+        delete from dept where deptno=#{deptno}
+    </delete>
 
 </mapper>

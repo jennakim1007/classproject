@@ -1,3 +1,4 @@
+import com.app.manager.domain.DeptDTO;
 import com.app.manager.domain.EmpDTO;
 import com.app.manager.mapper.DeptMapper;
 import com.app.manager.mapper.EmpMapper;
@@ -24,6 +25,23 @@ public class DeptMapperTest {
     @Test
     public void selectByDeptnoTest(){
         log.info(deptMapper.selectByDeptno(10));
+    }
+
+    @Test
+    public void insertDeptTest(){
+        DeptDTO deptDTO = new DeptDTO(80, "테스트테스트", "테스트테스트");
+        log.info(deptMapper.insertDept(deptDTO));
+    }
+
+    @Test
+    public void updateDeptTest(){
+        DeptDTO deptDTO = new DeptDTO(80, "테스트2", "테스트테스트");
+        log.info(deptMapper.updateDept(deptDTO));
+    }
+
+    @Test
+    public void deleteDeptByDeptnoTest(){
+        log.info(deptMapper.deleteDeptByDeptno(52));
     }
 
 
