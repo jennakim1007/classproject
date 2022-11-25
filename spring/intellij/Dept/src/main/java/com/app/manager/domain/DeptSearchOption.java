@@ -4,7 +4,7 @@ import lombok.*;
 import org.springframework.stereotype.Service;
 
 @Getter
-@Service
+@Setter
 @ToString
 @Builder
 @AllArgsConstructor

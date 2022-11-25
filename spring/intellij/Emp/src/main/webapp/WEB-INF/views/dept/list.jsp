@@ -20,34 +20,24 @@
 </head>
 <body>
 
-  <h1>Emp List</h1>
+  <h1>Dept List</h1>
   <hr>
 
-  <a href="/emp/register">사원 등록</a>
+  <a href="/dept/register">부서 등록</a>
 
     <table border="1">
         <tr>
-            <th>사원번호</th>
-            <th>사원이름</th>
-            <th>직급</th>
-            <th>관리자</th>
-            <th>입사일</th>
-            <th>급여</th>
-            <th>보너스</th>
             <th>부서번호</th>
+            <th>부서이름</th>
+            <th>부서위치</th>
             <th>관리</th>
         </tr>
 
-        <c:forEach items="${empList}" var="emp">
+        <c:forEach items="${deptList}" var="dept">
         <tr>
-                <th>${emp.empno}</th>
-                <th>${emp.ename}</th>
-                <th>${emp.job}</th>
-                <th>${emp.mgr}</th>
-                <th>${emp.hiredate}</th>
-                <th>${emp.sal}</th>
-                <th>${emp.comm}</th>
-                <th>${emp.deptno}</th>
+                <th>${dept.deptno}</th>
+                <th>${dept.dname}</th>
+                <th>${dept.loc}</th>
                 <th><a class="btn btn-info" href="/emp/edit?empno=${emp.empno}">수정</a>
                     <a class="btn btn-primary" href="/emp/delete?empno=${emp.empno}">삭제</a>
                 </th>

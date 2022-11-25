@@ -21,7 +21,10 @@ public class DeptMapperTest {
         log.info(deptMapper.selectAll());
     }
 
-
+    @Test
+    public void selectByDeptnoTest(){
+        log.info(deptMapper.selectByDeptno(10));
+    }
 
 
 }

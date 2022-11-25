@@ -2,6 +2,7 @@ package com.app.manager.mapper;
 
 import com.app.manager.domain.EmpDTO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 

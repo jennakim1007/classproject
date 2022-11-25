@@ -9,6 +9,9 @@
         select * from dept
     </select>
 
+    <insert id="insertDept" parameterType="com.app.manager.domain.DeptDTO">
+        insert into dept values (#{deptno}, #{dname}, #{loc})
+    </insert>
 
 
 </mapper>
