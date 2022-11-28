@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@Repository
 @Log4j2
 public class MemberDaoImpl implements MemberDao {
 

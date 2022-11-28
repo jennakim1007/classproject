@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Repository(value = "todoDao")
 @Log4j2
 public class TodoDaoImpl implements TodoDao {
 

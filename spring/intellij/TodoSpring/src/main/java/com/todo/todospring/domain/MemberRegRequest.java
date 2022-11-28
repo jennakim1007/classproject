@@ -3,6 +3,9 @@ package com.todo.todospring.domain;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 // 사용자로부터 받는 데이터 DTO
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,9 +15,13 @@ import org.springframework.web.multipart.MultipartFile;
 @ToString
 public class MemberRegRequest {
 
+    @NotEmpty(message = "ID는 필수 항목")
     private String uid;
+    @NotEmpty
     private String pw;
+    @NotEmpty
     private String uname;
+    @NotNull
     private MultipartFile uphoto;
 
     public Member toMember(){

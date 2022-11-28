@@ -10,5 +10,18 @@
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
+
+    <logger name="org.springframework" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+    </logger>
+
+    <logger name="com.todo.todospring.mapper" level="trace" additivity="false">
+        <AppenderRef ref="Console"/>
+    </logger>
+
+    <logger name="com.todo.todospring" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+    </logger>
+
 </Configuration>
 

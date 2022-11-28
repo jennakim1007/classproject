@@ -10,5 +10,13 @@
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
+
+    <logger name="com.todo.todospring" level="info" additivity="false">
+        <AppenderRef ref="Console"/>
+    </logger>
+
+
+
+
 </Configuration>
 

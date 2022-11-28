@@ -11,9 +11,12 @@
        https://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven></mvc:annotation-driven>
-    <context:component-scan base-package="com.todo.todospring"></context:component-scan>
+    <context:component-scan base-package="com.todo.todospring.controller"></context:component-scan>
+    <context:component-scan base-package="com.todo.todospring.exception"></context:component-scan>
 
     <mvc:resources mapping="/uploadfile/**" location="/uploadfile/"></mvc:resources>
+    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"></property>
@@ -35,6 +38,7 @@
         <property name="formatters">
             <set>
                 <bean class="com.todo.todospring.formatter.LocalDateFormatter"/>
+                <bean class="com.todo.todospring.formatter.CheckBoxFormatter"/>
             </set>
         </property>
     </bean>

@@ -2,6 +2,7 @@ package com.todo.todospring.service;
 
 import com.todo.todospring.dao.MemberDao;
 import com.todo.todospring.domain.Member;
+import com.todo.todospring.mapper.MemberMapper;
 import com.todo.todospring.util.ConnectionProvider;
 import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
@@ -17,13 +18,11 @@ import java.sql.Connection;
 public class LoginService {
 
     @Autowired
-    private MemberDao memberDao;
+    private MemberMapper memberMapper;
 
     public Member login(String uid, String pw) throws Exception {
 
-        @Cleanup Connection conn = ConnectionProvider.getInstance().getConnection();
-
-        return memberDao.selectByIdPw(conn, uid, pw);
+        return memberMapper.selectByIdPw(uid, pw);
 
     }
 
