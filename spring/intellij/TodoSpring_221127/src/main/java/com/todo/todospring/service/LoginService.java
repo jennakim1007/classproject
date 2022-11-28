@@ -5,10 +5,10 @@ import com.todo.todospring.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class LoginService {
 
-    @Autowired
+    @Autowired(required = false)
     private MemberMapper memberMapper;
 
     public MemberDTO login(String uid, String pw){

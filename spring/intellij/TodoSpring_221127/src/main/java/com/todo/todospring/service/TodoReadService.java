@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoReadService {
 
-    @Autowired
+    @Autowired(required = false)
     private TodoMapper todoMapper;
 
     public TodoDTO getTodoByTno(long tno){

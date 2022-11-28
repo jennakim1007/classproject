@@ -36,6 +36,13 @@ public class ConnectionTest {
         Connection conn = dataSource.getConnection();
         log.info(conn);
         Assertions.assertNotNull(conn);
+
+        log.info(memberMapper);
+        log.info(todoMapper);
+
+        log.info(todoMapper.selectAll());
+
+
     }
 
 

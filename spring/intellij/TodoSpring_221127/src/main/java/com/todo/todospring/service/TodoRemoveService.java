@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoRemoveService {
 
-    @Autowired
+    @Autowired(required = false)
     private TodoMapper todoMapper;
 
     public int deleteBytno(long tno) {

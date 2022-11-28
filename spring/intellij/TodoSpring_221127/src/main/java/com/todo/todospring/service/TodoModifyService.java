@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoModifyService {
 
-    @Autowired
+    @Autowired(required = false)
     private TodoMapper todoMapper;
 
     public int modify(TodoDTO todoDTO){

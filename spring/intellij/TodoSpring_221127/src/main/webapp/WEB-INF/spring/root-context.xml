@@ -11,6 +11,7 @@
        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
     <!-- 핵심 로직 처리하는 Bean(객체들을) 등록 설정 Service, Dao(Mapper), 데이터베이스 관련 -->
+    <!--<context:component-scan base-package="com.todo.todospring.service"></context:component-scan>-->
     <context:component-scan base-package="com.todo.todospring.service"></context:component-scan>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -36,7 +37,8 @@
         <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
     </bean>
 
-    <mybatis:scan base-package="com.todo.todospring.mapper"></mybatis:scan>
+    <!--<mybatis:scan base-package="com.todo.todospring.mapper"></mybatis:scan>-->
+    <mybatis:scan base-package="com.todo.todospring.mapper"/>
 
     <!-- 트랙젝션 설정 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

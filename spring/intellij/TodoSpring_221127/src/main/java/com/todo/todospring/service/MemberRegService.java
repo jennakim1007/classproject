@@ -11,10 +11,10 @@ import java.io.File;
 import java.io.IOException;
 
 @Log4j2
-@Service
+//@Service
 public class MemberRegService {
 
-    @Autowired
+    @Autowired(required = false)
     private MemberMapper memberMapper;
 
     public int memberReg(MemberDTO dto, HttpServletRequest request){
