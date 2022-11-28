@@ -21,7 +21,8 @@ public class MemberRegRequest {
     private String pw;
     @NotEmpty
     private String uname;
-    @NotNull
+
+    // @NotNull
     private MultipartFile uphoto;
 
     public Member toMember(){

@@ -10,8 +10,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <!-- 핵심 로직 처리하는 Bean(객체들을) 등록 설정
-    Service / Dao -->
+    <!-- 핵심 로직 처리하는 Bean(객체들을) 등록 설정 Service, Dao(Mapper), 데이터베이스 관련 -->
     <context:component-scan base-package="com.todo.todospring.service"></context:component-scan>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -45,9 +44,6 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-
-
 
 
 

@@ -3,6 +3,7 @@ package com.todo.todospring.domain;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 public class MemberDTO {
 
         private int idx;
+
+        @NotEmpty
         private String uid;
         private String pw;
         private String uuid;

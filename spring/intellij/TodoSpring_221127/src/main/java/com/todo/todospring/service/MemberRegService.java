@@ -19,31 +19,31 @@ public class MemberRegService {
 
     public int memberReg(MemberDTO dto, HttpServletRequest request){
 
-//        String newFileName = null;
-//
-//        if(dto.getUphoto()!=null && !dto.getUphoto().isEmpty() && dto.getUphoto().getSize()>0){
-//            // 저장할 폴더 지정
-//            String dirURI = "/uploadfile/member";
-//            // 절대 경로
-//            String dirRealPath = request.getSession().getServletContext().getRealPath(dirURI);
-//            log.info(dirRealPath);
-//
-//            newFileName = System.nanoTime() + dto.getUphoto().getOriginalFilename();
-//            log.info(newFileName);
-//
-//            try {
-//                dto.getUphoto().transferTo(new File(dirRealPath, newFileName));
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-//        }
-//        MemberDTO member = dto.toMember();
-//
-//        // MultipartFile 타입 uphoto 파일이 있다면 String 타입 uphotoName 을 새로 넣어주었음.
-//        if(newFileName!=null){
-//            member.setUphotoName(newFileName);
-//        }
+        String newFileName = null;
+
+        if(dto.getUphoto()!=null && !dto.getUphoto().isEmpty() && dto.getUphoto().getSize()>0){
+            // 저장할 폴더 지정
+            String dirURI = "/uploadfile/member";
+            // 절대 경로
+            String dirRealPath = request.getSession().getServletContext().getRealPath(dirURI);
+            log.info(dirRealPath);
+
+            newFileName = System.nanoTime() + dto.getUphoto().getOriginalFilename();
+            log.info(newFileName);
+
+            try {
+                dto.getUphoto().transferTo(new File(dirRealPath, newFileName));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+        MemberDTO member = dto.toMember();
+
+        // MultipartFile 타입 uphoto 파일이 있다면 String 타입 uphotoName 을 새로 넣어주었음.
+        if(newFileName!=null){
+            member.setUphotoName(newFileName);
+        }
 
         return memberMapper.insertMember(dto);
 
