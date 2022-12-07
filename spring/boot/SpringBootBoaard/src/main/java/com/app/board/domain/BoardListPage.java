@@ -51,15 +51,19 @@ public class BoardListPage {
         // 1 -> 1.0 / 10 => 0.1 => ceil : 가장 가까운 높은 정수값을 반환 1 * 10
         // 11 -> 11.0 / 10 => 1.1 => ceil : 가장 가까운 높은 정수값을 반환 2 * 10
 
-        // 시작값
+        // 시작번호
         this.startNum = this.endNum-9;
 
-        // 실제 마지막값
+        // 전체 페이지의 끝번호
         int realEndNum = (int)(Math.ceil((this.totalCount * 1.0) / countPerPage));
+
+        // 실제 마지막값 : 구간의 마지막 번호보다 실제 페이지 끝번호가 작으면 endnum 은 realendnum 이 되어야 한다.
         this.endNum = realEndNum < this.endNum ? realEndNum : this.endNum;
 
+        // 이전 구간으로 이동 가능한지
         this.prev = this.startNum>1;
 
+        // 다음 구간으로 이동 가능한지(마지막 번호인지)
         this.next = this.endNum<realEndNum;
 
     }
