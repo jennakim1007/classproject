@@ -3,8 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <title>Ex1</title>
+    <style>
+        .title{
+            color: cornflowerblue;
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
+
+    <h2>모듈화 : insert</h2>
+    <div th:insert="~{fragment/footer :: copy}"></div>
+    <div th:insert="fragment/footer :: copy"></div> <!-- <div><footer></footer></div>-->
+    <div th:replace="fragment/footer :: copy"></div> <!-- <footer></footer>-->
+    <div th:replace="fragment/footer :: copyParam('전화번호 : 070-7777-0000', '이메일 : king@gmail.com')"></div>
+
+    <h2>반복문</h2>
+    <h4>부서 리스트</h4>
+
+    <table border="1">
+        <tr>
+            <th>부서번호</th>
+            <th>부서이름</th>
+            <th>부서위치</th>
+        </tr>
+        <th:block th:each="dept : ${deptList}">
+            <div>test</div>
+            <tr>
+                <td th:text="${dept.deptno}"></td>
+                <td>[[${dept.dname}]]</td>
+                <td th:text="${dept.loc}"></td>
+            </tr>
+        </th:block>
+    </table>
+    <table border="1">
+        <tr>
+            <th>index</th>
+            <th>count</th>
+            <th>부서번호</th>
+            <th>부서이름</th>
+            <th>부서위치</th>
+        </tr>
+        <!-- th:each="변수 : 원본리스트(배열)"-->
+        <tr th:each="dept, deptStat : ${deptList}" th:object="${dept}">
+            <td th:text="${deptStat.index}"></td>
+            <td th:text="${deptStat.count}"></td>
+            <td th:text="*{deptno}"></td>
+            <td th:text="*{dname}"></td>
+            <td th:text="*{loc}"></td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th>부서번호</th>
+            <th>부서이름</th>
+            <th>부서위치</th>
+        </tr>
+        <!-- th:each="변수 : 원본리스트(배열)"-->
+        <tr th:each="dept : ${deptList}">
+            <td th:text="${dept.deptno}"></td>
+            <td>[[${dept.dname}]]</td>
+            <td th:text="${dept.loc}"></td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <th>index</th>
+            <th>count</th>
+            <th>부서번호</th>
+            <th>부서이름</th>
+            <th>부서위치</th>
+        </tr>
+        <!-- th:each="변수 : 원본리스트(배열)"-->
+        <tr th:each="dept, deptStat : ${deptList}">
+            <td th:text="${deptStat.index}"></td>
+            <td th:text="${deptStat.count}"></td>
+            <td th:text="${dept.deptno}"></td>
+            <td>[[${dept.dname}]]</td>
+            <td th:text="${dept.loc}"></td>
+        </tr>
+    </table>
+
+    <h2>조건식</h2>
+    <div th:with="age=${22}">
+        <ul>
+            <li><span th:text="${age}"></span></li>
+            <li>
+                <span th:text="성년" th:if="${age > 19}"></span>
+                <span th:text="미성년" th:if="${age < 20}"></span>
+                <span th:text="미성년" th:unless="${age > 19}"></span>
+            </li>
+            <li th:switch="${age}">
+                <span th:case="15">15살</span>
+                <span th:case="20">20살</span>
+                <span th:case="25">25살</span>
+                <span th:case="*">기타</span> <!-- th:case="*" => 디폴트 값 -->
+            </li>
+        </ul>
+        <th:block th:if="${age>19}">
+            <div class="title">성인입니다.</div>
+            <div>음주가 가능합니다!^-^</div>
+            <div>술집에는 출입이 불가합니다.ㅠ_ㅠ</div>
+        </th:block>
+    </div>
+
+    <h2>속성의 추가/변경</h2>
+    <ul>
+        <li><span class="sub" th:classappend="${'title'}">안녕하세요</span></li>
+        <li><span class="sub" th:attrprepend="class=${' title '}">안녕하세요</span></li>
+        <li><span class="sub" th:attrappend="class=${' title'}">안녕하세요</span></li>
+        <li><span class="sub" th:class="${'title'}">안녕하세요</span></li>
+        <li><span th:class="${'title'}">안녕하세요</span></li>
+        <li>안녕하세요</li>
+        <li>checked</li>
+        <li><input type="checkbox" name="aaa" th:checked="true"></li>
+        <li><input type="checkbox" name="aaa" th:checked="false"></li>
+        <li><input type="checkbox" name="aaa" th:checked="${10>1}"></li>
+    </ul>
 
     <h2>연산자</h2>
     <ul>
@@ -72,7 +188,7 @@
 
     <h2>객체 출력하는 표현식</h2>
     <ul>
-        <!--<li>${data.field}</li>-->
+        <!--/*<li>${data.field}</li>*/-->
         <li>부서이름 : [[${dept.dname}]]</li>
         <li>부서위치 : [[${dept.loc}]]</li>
         <li th:text="${dept.dname}"></li>
@@ -83,6 +199,33 @@
     <hr>
     <span th:text="${list}"></span>
     <h4>[[${list}]]</h4>
+
+
+<script th:inline="javascript">
+    let deptno = [[${deptList[0].deptno}]];
+    let dname = [[${deptList[0].dname}]]; // dname = ACCOUNTING
+    let loc = [[${deptList[0].loc}]];
+
+    // 객체 => JSON
+    var dept = '[[${dept}]]';
+    let deptList = '[[${deptList}]]';
+    let deptObj = JSON.parse(dept)
+    let deptListObj = (JSON).parse(deptList);
+
+    console.log('deptno', deptno)
+    console.log('dname', dname)
+    console.log('loc', loc)
+    console.log('deptObj', deptObj)
+    console.log('deptListObj', deptListObj)
+
+
+
+
+
+
+
+</script>
+
 
 
 </body>
