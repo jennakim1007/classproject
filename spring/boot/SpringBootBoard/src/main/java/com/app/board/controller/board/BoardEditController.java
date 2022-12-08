@@ -1,4 +1,4 @@
-package com.app.board.controller;
+package com.app.board.controller.board;
 
 import com.app.board.domain.BoardEditRequest;
 import com.app.board.service.BoardEditService;

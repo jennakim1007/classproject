@@ -1,4 +1,4 @@
-package com.app.board.controller;
+package com.app.board.controller.board;
 
 import com.app.board.service.BoardViewService;
 import lombok.extern.log4j.Log4j2;
