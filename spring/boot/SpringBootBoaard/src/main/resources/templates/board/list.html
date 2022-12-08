@@ -29,13 +29,14 @@
         <tbody>
           <tr th:each="board : ${listPage.list}">
             <td th:text="${board.bno}"></td>
-            <td th:text="${board.title}"></td>
+            <td><a th:text="${board.title}" th:href="@{/board/view(bno=${board.bno}, p=${listPage.pageNum})}"></a></td>
             <td th:text="${board.writer}"></td>
             <td th:text="${board.regdate}"></td>
           </tr>
         </tbody>
       </table>
 
+      <!--페이징 시작 -->
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <th:block th:if="${listPage.prev}">
@@ -43,8 +44,8 @@
               <a class="page-link" th:href="@{/board/list/(p=${listPage.startNum-1})}">&laquo;</a>
             </li>
           </th:block>
-          <th:block th:each="num : ${#numbers.sequence(listPage.startNum,listPage.endNum)}">
-            <li class="page-item">
+          <th:block th:each="num : ${#numbers.sequence(listPage.startNum,listPage.endNum)}" th:with="active=${listPage.pageNum==num?'active':''}">
+            <li class="page-item" th:classappend="${active}">
               <a class="page-link" th:href="@{/board/list/(p=${num})}" th:text="${num}"></a>
             </li>
           </th:block>
@@ -57,6 +58,11 @@
           </th:block>
         </ul>
       </nav>
+
+      <!--글쓰기 버튼 -->
+      <div class="text-end">
+          <a href="/board/write" class="btn btn-primary">글쓰기</a>
+      </div>
 
     </div>
   </div>
