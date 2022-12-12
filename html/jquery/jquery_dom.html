@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            background-color: black;
+            color: hotpink;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            /* $('h2').addClass('title')
+            setTimeout(()=>{
+                $('h2').removeClass('title')
+            },3000); // 3초 */
+
+            /* // attr()
+            let widths = [200, 450]
+
+            // getter
+            let srcPath = $('.img').attr('src') 
+            // 가장 첫 번째 객체를 가져온다. 
+            // 모든 이미지를 적용하려면 each 를 사용!
+            console.log('srcPath' + srcPath);
+
+            // setter 1
+            $('.img').attr('width', 200)
+
+            // setter 2
+            $('.img').attr('width', function(index){
+                // return (index+1)*200;
+                return widths[index]
+            })
+
+            // setter 3
+            let option = {
+                width : 400,
+                height : function(index){
+                    return widths[index]*1.5
+                }
+            }
+            $('.img').attr(option)
+
+            setTimeout(()=>{
+                $('.img').removeAttr('height').removeAttr('width');
+            },3000) */
+
+            /* // css() : style 속성 컨트롤
+            // getter
+            let colorVal = $('h1.title').css('color')
+            console.log(colorVal);
+
+            // setter 1 -> 값
+            $('h1').css('background', 'black')
+
+            // setter 2 -> fn
+            let colors = ['black', 'pink', 'yellow']
+            $('h1').css('background', (index)=>{
+                return colors[index]
+            })
+
+            // setter 3 -> {}
+            $('h1').css({
+                backgroundColor : (index)=>{
+                    return colors[index]}
+            }
+            ) */
+
+            ///////////////////////////////////////////////
+
+            // html() -> innerHTML , text() -> textContent
+            // getter
+            console.log('html()', $('#menu1').html())
+            console.log('text()', $('#menu2').text());
+
+            // setter 1 => 값을 설정
+            /* $('#menu1').html('<h1>h1 tag</h1>')
+            $('#menu2').text('<h1>h1 tag</h1>') */
+
+            // setter 2 => fn 함수 사용
+            /* $('div').html((index, oldHtml)=>{
+                console.log(index, oldHtml);
+                // $(this).html('<h1>'+oldHtml+index+'</h1>')
+                return '<h1>'+oldHtml+index+'!!!'+'</h1>'
+            }) */
+
+            ///////////////////////////////////////////////
+            $('#btn1').click(function(e){
+                $('#menu1').remove()
+            })
+            $('#btn2').click(function(e){
+                $('#menu2').empty()
+            })
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+
+    <button id="btn1">메뉴 삭제</button>
+    <button id="btn2">내용 삭제</button>
+    
+    <div id="menu1">
+        <span>Text 1</span>
+    </div>
+    <div id="menu2">
+        <span>Text 2</span>
+    </div>
+
+    <!-- <h1 class="title">header - 1</h1>
+    <h1 class="title">header - 2</h1>
+    <h1 class="title">header - 3</h1> -->
+    <!-- <img src="../html5/mini2.jpg" class="img">
+    <img src="../html5//우기이.jpg" class="img"> -->
+    <!-- <h2>header 2</h2> -->
+
+
+
+</body>
+</html>
