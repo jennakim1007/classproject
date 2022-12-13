@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, p, a{
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        p {
+            width: 50%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            /* $('div').click(function(){
+                console.log('div click!');
+            }) */
+
+            /* $('p').click(function(){
+                console.log('p click!');
+                return false;
+            }) */
+
+            /* $('a').click(function(e){
+                e = e || window.event
+                // 기본 이벤트 제거
+                e.preventDefault()
+                // 이벤트 버블링 제거
+                if(e.stopPropagation){
+                    e.stopPropagation()
+                }
+                console.log('e click!');
+                return false; // 기본 이벤트 제거와 이벤트 버블링 제거 역할을 한다.
+            }) */
+
+            $('#allCheck').change(function(){
+                console.log('checked 상태', this.checked);
+                if(this.checked){
+                    $('#checkItem').children().prop('checked', true)
+                } else {
+                    $('#checkItem').children().prop('checked', false)
+                }
+
+
+            })
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="allCheck" id="allCheck">
+    <label for="allCheck">all 전체 동의</label>
+    <div id="checkItem">
+        <input type="checkbox"><label>a Type</label>
+        <input type="checkbox"><label>b Type</label>
+        <input type="checkbox"><label>c Type</label>
+    </div>
+    <!-- <div>
+        <p>
+            <a href="http://www.naver.com">link</a>
+        </p>
+    </div> -->
+</body>
+</html>

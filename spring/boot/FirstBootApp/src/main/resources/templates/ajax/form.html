@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax Form</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            // 페이지 가져오기
+            /*$.ajax('/data.html',{
+                success : function(data){
+                    console.log(data)
+                    $('body').append(data);
+                }
+            })*/
+
+            /*$.ajax({
+                url : '/data.html',
+                success : function(data){
+                    console.log(data)
+                    $('body').append(data);
+                }
+            })*/
+
+            // parameter get name, price
+            /*$('#btnSubmit').click(function (){
+
+                let name = $('#name').val()
+                let price = $('#price').val()
+
+                $.ajax({
+                    url : '/parameter',
+                    type : 'get', // post put delete
+                    data : {name : name, price : price}, // {} 또는 문자열 쿼리스트링 name=milk&price=1000
+                    success : function (data){
+                        console.log('통신 결과 data...', data)
+                        $('body').append('<h3>'+data+'</h3>')
+                    }
+                })
+            })*/
+
+            // 데이터 간단하게 가져오기
+            /*$.get('/data.html', function(data){
+                $('body').html(data)
+            })*/
+
+            /*$.get('/parameter', {name : '우유', price : 3000}, function(data){
+                $('body').html(data)
+            })*/
+
+            // json data 받기
+            /*$.get('/data.json', function (data){
+                console.log(data)
+                $.each(data, function (index, item){
+                    $('body').append('<h3>'+item.name+' : '+item.price+'</h3>')
+                })
+            }, 'json')*/
+
+            // getJSON 이용하여 json data 받기
+            /*$.getJSON('/data.json', function (data){
+                console.log(data)
+                $.each(data, function (index, item){
+                    $('body').append('<h3>'+item.name+' : '+item.price+'</h3>')
+                })
+            })*/
+
+            // load()
+            /*$('div').load('/data.html')*/
+
+            /*$.ajax({
+                url : '/data.xml',
+                success : function (data){
+                    $(data).find('product').each(function (){
+                        let name = $(this).find('name').text()
+                        let price = $(this).find('price').text()
+                        $('div').append('<h3>'+name+' : '+price+'</h3>')
+                    })
+                }
+            })*/
+
+            $('#myForm').submit(function (){
+
+                // 아래 this 는 submit을 가르킨다
+                let param1 = $(this).serialize();
+                let param2 = $(this).serializeArray();
+                console.log(param1, param2)
+
+                $.get('/parameter', param1, function(data){
+                    $('body').html(data)
+                })
+
+                return false;
+            })
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+
+    <form id="myForm">
+        이름 <input type="text" name="name" id="name">
+        가격 <input type="text" name="price" id="price">
+        <input type="submit" id="btnSubmit" value="전송">
+    </form>
+
+    <div></div>
+
+    <!--이름 <input type="text" name="name" id="name">
+    가격 <input type="text" name="price" id="price">
+    <input type="submit" id="btnSubmit" value="전송">-->
+
+
+</body>
+</html>
