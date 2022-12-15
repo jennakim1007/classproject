@@ -22,7 +22,6 @@ public class Dept {
     @Column(length = 20, nullable = false)
     private String dname;
 
-
     @Column(length = 20, nullable = false)
     private String loc;
 
