@@ -29,6 +29,8 @@ public class CustomSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
+        http.csrf().disable();
+
         // Security 의 설정
         // 1. 요청(URL)에 대한 인증과 허가에 대한 설정
         http.authorizeHttpRequests()
