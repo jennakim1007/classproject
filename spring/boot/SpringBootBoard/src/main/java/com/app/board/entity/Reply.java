@@ -5,37 +5,34 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "tbl_board")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
-public class BoardDTO {
+@ToString
+@Entity
+@Table(name = "tbl_reply")
+public class Reply {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer bno;
+    @Column
+    private Integer rno;
 
     @Column
-    private String title;
+    private Integer bno; // board 외래키
 
     @Column
-    private String content;
+    private String reply;
 
     @Column
-    private String writer;
+    private String replyer;
 
-    @Column
-    private String photo;
+    @Column(insertable = false)
+    private LocalDate replydate;
 
-    @Column
-    private LocalDate regdate;
-
-    @Column
+    @Column(insertable = false)
     private LocalDate updatedate;
 
 }
