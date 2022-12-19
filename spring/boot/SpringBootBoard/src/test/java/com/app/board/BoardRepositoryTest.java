@@ -27,12 +27,12 @@ public class BoardRepositoryTest {
     public void saveTest(){
 
         // BoardWriteRequest -> Entity -> save()
-        BoardWriteRequest writeRequest = BoardWriteRequest.builder().title("1216 jpa test").writer("jpa").content("테스트입니다.").build();
+        /*BoardWriteRequest writeRequest = BoardWriteRequest.builder().title("1216 jpa test").writer("jpa").content("테스트입니다.").build();
 
         Board board = writeRequest.toBoardEntity();
 
         log.info("insert 전... "+board);
-        log.info("insert 후... "+boardRepository.save(board));
+        log.info("insert 후... "+boardRepository.save(board));*/
 
     }
 

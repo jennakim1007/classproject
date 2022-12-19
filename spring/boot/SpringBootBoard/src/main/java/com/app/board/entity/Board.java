@@ -26,8 +26,12 @@ public class Board {
     @Column
     private String content;
 
-    @Column(updatable = false)
-    private String writer;
+    /*@Column(updatable = false)
+    private String writer;*/
+
+    @ManyToOne
+    @JoinColumn(name = "writer")
+    private BoardMember writer; // 여러 개 board 에서 1개의 member를 갖는다.
 
     @Column
     private String photo;
