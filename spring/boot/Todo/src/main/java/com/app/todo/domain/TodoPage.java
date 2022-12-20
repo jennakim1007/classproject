@@ -1,10 +1,7 @@
 package com.app.todo.domain;
 
 import com.app.todo.entity.Todo;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class TodoPage {
 
     private int countPerPage; // 페이지 당 출력할 게시물 개수
@@ -46,7 +44,7 @@ public class TodoPage {
         this.endNum = (int)(Math.ceil((this.pageNum*1.0) / 10)) * 10;
 
         // 시작 번호
-        this.startNum = this.endNum - this.countPerPage -1;
+        this.startNum = this.endNum - 9;
 
         // 전체 페이지의 끝 번호
         int realEndNum = (int)(Math.ceil((this.totlaCount*1.0) / countPerPage ));

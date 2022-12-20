@@ -15,8 +15,9 @@ public class TodoListController {
 
     @GetMapping("/todo/list")
     public void getTodoList(Model model, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum){
-        model.addAttribute("todoList", todoListService.getList(pageNum)); // 리스트
-        model.addAttribute("todoPage", todoListService.getPage(pageNum)); // 페이지
+
+        model.addAttribute("todoPage", todoListService.getPage(pageNum));
+
     }
 
 
