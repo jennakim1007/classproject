@@ -4,6 +4,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Log4j2
@@ -18,14 +20,24 @@ public class CustomSecurityConfig {
 
         // 1. 권한에 따른 접속 경로 설정
         http.authorizeHttpRequests()
-                .antMatchers("/todo/**").hasRole("USER")
+                // .antMatchers("/todo/**").hasRole("USER")
                 .anyRequest().permitAll();
 
         // 2. 기본 로그인 폼 설정
-        http.formLogin().loginPage("/auth/login");
+        http.formLogin();
+        // http.formLogin().loginPage("/auth/login");
+
+        // 3. 로그아웃 설정
+        http.logout().logoutSuccessUrl("/");
 
         return http.build();
 
+    }
+
+    // 4. 비밀번호 암호화
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- nav 시작 -->
+    <div th:replace="fragment/nav"></div>
+
+    <!-- card 시작 -->
+    <div class="card m-3 mx-auto" style="width: 80%">
+        <div class="card-header">
+            Todo
+        </div>
+        <div class="card-body">
+            <!-- todo list 시작 -->
+            <table class="table text-center">
+                <thead>
+                    <th class="col-1">번호</th>
+                    <th>할 일</th>
+                    <th class="col-2">마감일</th>
+                    <th class="col-2">완료</th>
+                </thead>
+                <tbody>
+                    <tr th:each="todo : ${todoPage.list}">
+                        <td th:text="${todo.tno}"></td>
+                        <td th:text="${todo.todo}"></td>
+                        <td th:text="${todo.duedate}"></td>
+                        <td th:text="${todo.finished}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--페이징 시작 -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination" style="justify-content: center">
+            <th:block th:if="${todoPage.prev}">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{/todo/list/(pageNum=${todoPage.startNum-1})}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            </th:block>
+            <th:block th:each="num : ${#numbers.sequence(todoPage.startNum, todoPage.endNum)}" th:with="active=${todoPage.pageNum==num?'active':''}">
+                <li class="page-item" th:classappend="${active}">
+                    <a class="page-link" th:text="${num}" th:href="@{/todo/list/(pageNum=${num})}"></a>
+                </li>
+            </th:block>
+            <th:block th:if="${todoPage.next}">
+                <li class="page-item">
+                    <a class="page-link" th:href="@{/todo/list/(pageNum=${todoPage.endNum+1})}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </th:block>
+        </ul>
+    </nav>
+
+
+
+</body>
+</html>
