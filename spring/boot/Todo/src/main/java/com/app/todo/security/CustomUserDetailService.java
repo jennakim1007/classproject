@@ -1,5 +1,6 @@
 package com.app.todo.security;
 
+import com.app.todo.domain.MemberRequest;
 import com.app.todo.entity.TodoMember;
 import com.app.todo.repository.TodoMemberRepository;
 import lombok.extern.log4j.Log4j2;
@@ -8,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -46,6 +48,15 @@ public class CustomUserDetailService implements UserDetailsService {
 
         return customUser;
 
+    }
+
+    public int save(MemberRequest memberRequest){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        memberRequest.setPassword(encoder.encode(memberRequest.getPassword()));
+
+        TodoMember member = memberRequest.toMemberEntity();
+
+        return todoMemberRepository.save(member) != null ? 1 : 0;
     }
 
 

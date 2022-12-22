@@ -24,8 +24,8 @@ public class CustomSecurityConfig {
                 .anyRequest().permitAll();
 
         // 2. 기본 로그인 폼 설정
-        http.formLogin();
-        // http.formLogin().loginPage("/auth/login");
+        // http.formLogin();
+        http.formLogin().loginPage("/auth/login");
 
         // 3. 자동 로그인
         http.rememberMe().key("123456789").rememberMeParameter("remember").tokenValiditySeconds(60*60*60*24*7);
