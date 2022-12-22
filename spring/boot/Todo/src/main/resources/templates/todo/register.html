@@ -31,7 +31,13 @@
           </tr>
           <tr>
             <td>완료여부</td>
-            <td><input type="checkbox" name="finished" id="finished" class="form-check-input"></td>
+            <!--<td><input type="checkbox" name="finished" id="finished" class="form-check-input"></td>-->
+            <td>
+              <label th:for="finished">진행중</label>
+              <input type="radio" name="finished" value="0" checked>
+              <label th:for="finished">완료</label>
+              <input type="radio" name="finished" value="1">
+            </td>
           </tr>
           <tr>
             <td></td>

@@ -13,14 +13,16 @@ import java.time.LocalDate;
 @Builder
 public class TodoRequest {
 
+    private int tno;
+
     private String todo;
 
     private String duedate;
 
-    private int finished;
+    private Integer finished;
 
     public Todo toTodoEntity(){
-        return Todo.builder().todo(todo).duedate(LocalDate.parse(duedate)).finished(finished).build();
+        return Todo.builder().tno(tno).todo(todo).duedate(LocalDate.parse(duedate)).finished(finished).build();
     }
 
 

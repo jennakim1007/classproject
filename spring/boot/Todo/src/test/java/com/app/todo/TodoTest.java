@@ -8,12 +8,24 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
+
 @Log4j2
 @SpringBootTest
 public class TodoTest {
 
     @Autowired
     private TodoRepository todoRepository;
+
+    @Test
+    public void modifyTodoTest(){
+        todoRepository.updateTodoByTno("수정", LocalDate.parse("2022-12-31"), 1, 128);
+    }
+
+    @Test
+    public void deleteTodoTest(){
+        todoRepository.deleteByTno(120);
+    }
 
     @Test
     public void insertTodoTest(){

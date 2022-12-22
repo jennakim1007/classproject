@@ -34,8 +34,8 @@
                         <td th:text="${todo.duedate}"></td>
                         <!--<td th:text="${todo.finished}"></td>-->
                         <td th:switch="${todo.finished}">
-                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="0">
-                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="1" checked>
+                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="0" onclick="return false;">
+                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="1" checked onclick="return false;">
                         </td>
                     </tr>
                 </tbody>
