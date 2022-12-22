@@ -17,7 +17,7 @@ public class TodoTest {
 
     @Test
     public void insertTodoTest(){
-        Todo todo = Todo.builder().todo("testclass").build();
+        Todo todo = Todo.builder().todo("test").build();
         todoRepository.save(todo);
         log.info("insert todo......." + todo);
     }

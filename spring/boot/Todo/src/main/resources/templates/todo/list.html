@@ -28,9 +28,15 @@
                 <tbody>
                     <tr th:each="todo : ${todoPage.list}">
                         <td th:text="${todo.tno}"></td>
-                        <td th:text="${todo.todo}"></td>
+                        <td>
+                            <a th:text="${todo.todo}" th:href="@{/todo/modify/(tno=${todo.tno})}"></a>
+                        </td>
                         <td th:text="${todo.duedate}"></td>
-                        <td th:text="${todo.finished}"></td>
+                        <!--<td th:text="${todo.finished}"></td>-->
+                        <td th:switch="${todo.finished}">
+                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="0">
+                            <input type="checkbox" name="finished" class="form-check-input" readonly th:case="1" checked>
+                        </td>
                     </tr>
                 </tbody>
             </table>

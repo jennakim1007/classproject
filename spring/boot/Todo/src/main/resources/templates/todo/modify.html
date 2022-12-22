@@ -20,14 +20,14 @@
       <form method="post">
         <table class="table">
           <tr>
-            <!--<input type="hidden" name="tno" id="tno" >-->
+            <input type="hidden" name="tno" id="tno" >
             <!--<input type="hidden" name="idx" id="idx">-->
             <td>할 일</td>
-            <td><input type="text" name="todo" id="todo" class="form-control" placeholder="할 일을 입력하세요."></td>
+            <td><input type="text" name="todo" id="todo" class="form-control" th:value="${todo.todo}"></td>
           </tr>
           <tr>
             <td>마감일</td>
-            <td><input type="date" name="duedate" id="duedate" class="form-control"></td>
+            <td><input type="date" name="duedate" id="duedate" class="form-control" th:value="${todo.duedate}"></td>
           </tr>
           <tr>
             <td>완료여부</td>
@@ -36,8 +36,8 @@
           <tr>
             <td></td>
             <td class="text-end">
-              <input type="reset" class="btn btn-outline-secondary">
-              <input type="submit" value="입력하기" class="btn btn-outline-primary">
+              <a href="#" class="btn btn-outline-secondary">삭제하기</a>
+              <input type="submit" value="수정하기" class="btn btn-outline-primary">
             </td>
           </tr>
         </table>
