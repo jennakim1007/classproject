@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Todo - Register</title>
@@ -16,9 +16,28 @@
     <div class="card-header">
       Todo 등록
     </div>
-    <div class="card-body">
+    <div class="card-body" style="height: 500px">
       <form method="post">
-
+        <table>
+          <tr>
+            <input type="hidden" name="tno" id="tno">
+            <input type="hidden" name="idx" id="idx">
+            <td>할 일</td>
+            <td><input type="text" name="todo" id="todo" class="form-control" placeholder="할 일을 입력하세요."></td>
+          </tr>
+          <tr>
+            <td>마감일</td>
+            <td><input type="date" name="duedate" id="duedate" class="form-control"></td>
+          </tr>
+          <tr>
+            <td>완료여부</td>
+            <td><input type="checkbox" name="finished" id="finished" class="form-check-input"></td>
+          </tr>
+          <tr>
+            <td><input type="reset" class="btn btn-outline-secondary"></td>
+            <td><input type="submit" value="입력하기" class="btn btn-outline-primary"></td>
+          </tr>
+        </table>
       </form>
     </div>
   </div>
