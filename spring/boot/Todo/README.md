@@ -17,7 +17,8 @@ Spring boot 를 이용한 todo project 최종본 입니다.  <br>
     *  JavaScript
 * Java
     * Spring Boot
-* DBMS - MySql
+* DBMS 
+    * MySql
 
 <br>
 
