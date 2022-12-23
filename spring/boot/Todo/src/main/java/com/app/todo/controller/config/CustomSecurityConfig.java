@@ -1,5 +1,6 @@
 package com.app.todo.controller.config;
 
+import com.app.todo.security.CustomLoginSuccessHandler;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,10 +8,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Log4j2
 @Configuration
 public class CustomSecurityConfig {
+
+    @Bean
+    public AuthenticationSuccessHandler successHandler(){
+        return new CustomLoginSuccessHandler();
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -25,7 +32,7 @@ public class CustomSecurityConfig {
 
         // 2. 기본 로그인 폼 설정
         // http.formLogin();
-        http.formLogin().loginPage("/auth/login");
+        http.formLogin().loginPage("/auth/login").usernameParameter("userid").passwordParameter("password").successHandler(successHandler());
 
         // 3. 자동 로그인
         http.rememberMe().key("123456789").rememberMeParameter("remember").tokenValiditySeconds(60*60*60*24*7);
