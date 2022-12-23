@@ -42,17 +42,34 @@ Spring boot 를 이용한 todo project 최종본 입니다.  <br>
 <br>
 
 ## 테스트 안내 
-**데이터베이스 초기세팅이 필요합니다.** 
+**데이터베이스 초기세팅이 필요합니다.**
+두 개의 테이블을 만들고 Todo 를 실행합니다. 
 
-**1. 데이터베이스 세팅 :**
-* 설명
-* 설명
-<br>
+    CREATE TABLE `todo` (
+      `tno` int NOT NULL AUTO_INCREMENT,
+      `todo` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `duedate` datetime DEFAULT CURRENT_TIMESTAMP,
+      `finished` int DEFAULT '0',
+      `idx` int DEFAULT NULL,
+      PRIMARY KEY (`tno`),
+      KEY `fk_idx_idx` (`idx`),
+      CONSTRAINT `fk_idx` FOREIGN KEY (`idx`) REFERENCES `todomember` (`idx`)
+    )
+    
+ <br>
 
-**2. 사용자 계정 :**
-* ID : aaa
-* PW : aaa
-<br>
+    CREATE TABLE `todomember` (
+      `idx` int NOT NULL AUTO_INCREMENT,
+      `userid` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `password` varchar(145) COLLATE utf8mb3_bin NOT NULL,
+      `username` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `role` varchar(45) COLLATE utf8mb3_bin DEFAULT 'USER',
+      `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (`idx`),
+      UNIQUE KEY `userid_UNIQUE` (`userid`)
+    )
+
+
 
 ## 버전설명
 * v0
