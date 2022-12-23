@@ -59,6 +59,10 @@ public class CustomUserDetailService implements UserDetailsService {
         return todoMemberRepository.save(member) != null ? 1 : 0;
     }
 
+    public long idCheck(String userid){
+        log.info("idCheck Service.........");
+        return todoMemberRepository.countByUserid(userid);
+    }
 
 
 
