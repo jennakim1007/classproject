@@ -11,6 +11,14 @@ Spring boot 를 이용한 todo project 최종본 입니다.  <br>
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
 <img alt="Html" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=white"/> 
 
+* 웹 표준
+    *  HTML5
+    *  CSS3
+    *  JavaScript
+* Java
+    * Spring Boot
+* DBMS - MySql
+
 <br>
 
 ## 프로젝트 구조
