@@ -1,0 +1,16 @@
+import React from "react";
+import Player from "./Player";
+
+function Team(props){
+
+    return (
+        <div>
+            <Player playerName='SON' playerNumber='7'></Player>
+            <Player playerName='LEE' playerNumber='27'></Player>
+            <Player playerName='PARK' playerNumber='17'></Player>
+        </div>
+    )
+
+}
+
+export default Team;
