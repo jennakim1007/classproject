@@ -1,5 +1,5 @@
 import React from "react";
-import UserInfo from "../UserInfo";
+import UserInfo from "./UserInfo";
 
 function Comment(props){
 
@@ -7,7 +7,7 @@ function Comment(props){
         <div className="comment">
             {/* 회원정보 */}
             {/* <div className="userInfo">
-                <img className="userImg" src="{props.user.imgUrl}" alt="{props.user.userName}"/>
+                <img className="userImg" src={props.user.imgUrl} alt={props.user.userName}/>
                 <div className="userInfoName">
                     {props.user.userName}
                 </div>

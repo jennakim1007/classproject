@@ -1,5 +1,5 @@
 import React from "react";
-import UserImg from "./components/UserImage";
+import UserImg from "./UserImage";
 
 function UserInfo(props){
     return (
