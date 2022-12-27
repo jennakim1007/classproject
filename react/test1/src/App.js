@@ -1,6 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 import Comment from './components/Comment';
+import Notification from './components/Notification';
+import Counter from './components/Counter';
+import TextInputButton from './components/TextInputButton';
+import Accommodate from './components/Accommodate';
+import Toggle from './components/Toggle';
+import MyButton from './components/MyButton';
+import ConfirmButton from './components/ConfirmButton';
+import Greeting from './components/Greeting';
+import LoginButton from './components/LoginControl';
+import LoginControl from './components/LoginControl';
+import MaleBox from './MailBox';
+import UserStatus from './components/UserStatus';
+import WarningBanner from './components/WarningBanner';
+import Mainpage from './components/Mainpage';
 
 
 const comment = {
@@ -12,11 +26,91 @@ const comment = {
     replyDate : '2022-12-31'
 }
 
+let list = [{},{},{},{}]
+
 function App() {
+  return (
+    <Mainpage/>
+  );
+}
+
+/* function App() {
+  return (
+    <WarningBanner warning={true}/>
+  );
+} */
+
+/* function App() {
+  return (
+    <UserStatus isLogin={true}/>
+  );
+} */
+
+/* function App() {
+  return (
+    <MaleBox unReadMessaage={list}/>
+  );
+} */
+
+/* function App() {
+  return (
+    <LoginControl/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Greeting isLogin={true}/>
+  );
+} */
+
+/* function App() {
+  return (
+    <ConfirmButton/>
+  );
+} */
+
+/* function App() {
+  return (
+    <MyButton/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Toggle/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Accommodate/>
+  );
+} */
+
+/* function App() {
+  return (
+    <TextInputButton/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Counter/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Notification message="안녕하세요"/>
+  );
+} */
+
+/* function App() {
   return (
     <Comment user={comment.user} content={comment.content} replyDate={comment.replyDate}/>
   );
-}
+} */
 
 /* function App() {
   return (
