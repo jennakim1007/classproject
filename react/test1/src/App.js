@@ -15,6 +15,20 @@ import MaleBox from './MailBox';
 import UserStatus from './components/UserStatus';
 import WarningBanner from './components/WarningBanner';
 import Mainpage from './components/Mainpage';
+import NumberList from './components/NumberList';
+import TeamPlayers from './components/TeamPlayers';
+import NameForm from './components/NameForm';
+import RequestForm from './components/RequestForm';
+import FruitSelect from './components/FruitSelect';
+import Reservation from './components/Reservation';
+import SignUp from './components/SignUp';
+import WelcomeMessage from './components/WelcomeMessage';
+import WelcomeDialog from './components/WelcomeDialog';
+import SignUpDialog from './components/SignUpDialog';
+import Card from './components/Card';
+import ProfileCard from './components/ProfileCard';
+import MainContent from './components/MainContent';
+import DarkOrWhite from './components/DarkOrWhite';
 
 
 const comment = {
@@ -30,9 +44,81 @@ let list = [{},{},{},{}]
 
 function App() {
   return (
-    <Mainpage/>
+    <DarkOrWhite/>
   );
 }
+
+/* function App() {
+  return (
+    <ProfileCard/>
+  );
+} */
+
+/* function App() {
+  return (
+    <SignUpDialog/>
+  );
+} */
+
+/* function App() {
+  return (
+    <WelcomeDialog/>
+  );
+} */
+
+/* function App() {
+  return (
+    <WelcomeMessage/>
+  );
+} */
+
+/* function App() {
+  return (
+    <SignUp/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Reservation/>
+  );
+} */
+
+/* function App() {
+  return (
+    <FruitSelect/>
+  );
+} */
+
+/* function App() {
+  return (
+    <RequestForm/>
+  );
+} */
+
+/* function App() {
+  return (
+    <NameForm/>
+  );
+} */
+
+/* function App() {
+  return (
+    <TeamPlayers/>
+  );
+} */
+
+/* function App() {
+  return (
+    <NumberList/>
+  );
+} */
+
+/* function App() {
+  return (
+    <Mainpage/>
+  );
+} */
 
 /* function App() {
   return (
