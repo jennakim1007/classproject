@@ -29,6 +29,9 @@ import Card from './components/Card';
 import ProfileCard from './components/ProfileCard';
 import MainContent from './components/MainContent';
 import DarkOrWhite from './components/DarkOrWhite';
+import Container from './components/ex1/Container';
+import WordList from './components/ex2/WordList';
+import WordContainer from './components/ex2/WordContainer';
 
 
 const comment = {
@@ -44,9 +47,21 @@ let list = [{},{},{},{}]
 
 function App() {
   return (
-    <DarkOrWhite/>
+    <WordContainer/>
   );
 }
+
+/* function App() {
+  return (
+    <Container/>
+  );
+} */
+
+/* function App() {
+  return (
+    <DarkOrWhite/>
+  );
+} */
 
 /* function App() {
   return (
