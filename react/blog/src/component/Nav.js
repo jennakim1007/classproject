@@ -1,11 +1,11 @@
 import React from "react";
 
-function Nav(props){
+function Nav({category, findArticleByCategory}){
 
     return (
         <nav>
             <ul>
-                {props.category.map(category => <li key={category.no}>{category.name}</li>)}
+                {category.map(category => <li key={category.no}>{category.name}</li>)}
             </ul>
             <span>
                 <input type="text"/>
