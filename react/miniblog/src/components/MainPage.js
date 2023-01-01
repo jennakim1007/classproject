@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   background-color: gray;
   display: flex;
   flex-direction: row;
+  align-items:flex-start;
   align-items: flex-start;  
 `;
 
@@ -58,7 +59,7 @@ function MainPage(props) {
 
                 { blockItems.map( (item, index) => {
                     return (
-                        <Block
+                        <Block key={index}
                             padding={item.padding}
                             bColor={item.backColor}
                         >

@@ -6,7 +6,6 @@ const Wrapper = styled.div`
     padding : 16px;
     display : flex;
     flex-direction : column;
-    align-items : flex-start;
     border : 1px solid gray;
     border-radius : 8px;
     cursor : pointer;
@@ -20,11 +19,9 @@ const TitleText = styled.p`
 
 function PostListItem({post, onClick}) {
     return (
-        <div>
-            <Wrapper onClick={onClick}>
-                <TitleText>{post.title}</TitleText>
-            </Wrapper>
-        </div>
+        <Wrapper onClick={onClick}>
+            <TitleText>{post.title}</TitleText>
+        </Wrapper>
     );
 }
 

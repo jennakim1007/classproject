@@ -14,7 +14,7 @@ function PostWritePage(props) {
     return (
         <PageLayout>
             <TextInput height={20} value={title} onChange={(event)=>setTitle(event.target.value)}></TextInput>
-            <TextInput></TextInput>
+            <TextInput height={400} value={content} onChange={(event) => {setContent(event.target.value)}}></TextInput>
             <Button title={'글 작성'} onClick={() => navigate}></Button>
         </PageLayout>
     );

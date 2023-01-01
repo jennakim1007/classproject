@@ -6,7 +6,6 @@ const Wrapper = styled.div`
     padding : 8px 16px;
     display : flex;
     flex-direction : column;
-    align-items : flex-start;
     border : 1px solid gray;
     border-radius : 8px;
     cursor : pointer;
