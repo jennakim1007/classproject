@@ -1,10 +1,8 @@
-# Hitem Broker Project
-Open Api를 활용한 공공 빅데이터 자바 개발자 양성과정의 최종 프로젝트 입니다. <br>
-기존에 있는 아이템매니아 사이트를 클론코딩하였습니다. <br>
-(프로젝트 주소...)
-
-작업자 : [@dabinHam](https://github.com/dabinHam "@dabinHam"), [@DongWon1215](https://github.com/DongWon1215 "@DongWon1215"), [@jinsol1997](https://github.com/jinsol1997 "@jinsol1997"), [@jennakim1007](https://github.com/jennakim1007 "@jennakim1007"), [@kimjuhwan7](https://github.com/kimjuhwan7 "@kimjuhwan7")
-
+<<<<<<< HEAD
+# classproject
+=======
+# Todo mini Project
+Spring boot 를 이용한 todo project 최종본 입니다.  <br>
 <br>
 
 ## 기술/구조
@@ -20,61 +18,74 @@ Open Api를 활용한 공공 빅데이터 자바 개발자 양성과정의 최�
     *  HTML5
     *  CSS3
     *  JavaScript
-    * ...
 * Java
     * Spring Boot
-    * ...
 * DBMS 
     * MySql
-    * ...
 
 <br>
 
 ## 프로젝트 구조
-> 1. 회원 가입을 하고, 로그인 및 회원찾기를 할 수 있습니다. 
-> 2. 회원가입 후 판매글과 구매글을 작성할 수 있습니다. <br>
-> 3. 게임별, 서버별 키워드로 게시글을 검색할 수 있습니다. <br>
-> 4. 마일리지를 충전하고 유료이용권을 결제, 사용할 수 있습니다. <br>
-> 5. 게시판, 회원의 crud 기능을 사용할 수 있습니다.
-> 6. ...
+> 1. 로그인 후 할 일을 입력, 조회, 수정 삭제 할 수 있습니다. <br>
+> 2. 페이징 처리를 하여 10페이지씩 리스트를 조회할 수 있습니다. <br>
+> 3. 회원가입시 아이디 중복 검사와 비밀번호 암호화를 할 수 있습니다. <br>
+> 4. 로그인시 권한에 따른 페이지 확인을 할 수 있습니다. 
 <br>
 
 * 회원
-    * kakao open api 를 사용한 회원가입
-    * 마이룸에서 crud 기능
-    * 마일리지 충전 ...
-   ![image](https://user-images.githubusercontent.com/113006966/216488001-367de24b-4ced-4f77-87ba-cd53a98a1ea0.png)
-   
-* 게시글(구매/판매)
-    * 마일리지를 사용한 이용권 구매와...
-    * 키워드 검색을 통한...
-    ![image](https://user-images.githubusercontent.com/113006966/216488354-538b231d-cea5-4d3d-87fb-f4895766953d.png)
-    
+    * 로그인
+    * 회원가입  
+    ![image](https://user-images.githubusercontent.com/113006966/209281078-6f79a145-7282-415d-af1a-cee24e9c7826.png)
+
+* Todo
+    * 진행중, 완료한 Todo 확인
+    ![image](https://user-images.githubusercontent.com/113006966/209281506-36dedfea-fd77-4065-af01-354950b445ac.png)
+    * 입력  
+    * 수정
+    * 삭제
+    ![image](https://user-images.githubusercontent.com/113006966/209281556-a6a8ff17-9b5e-4cc6-8177-1fd93d2d4b32.png)
+<br>
+
+## 구현하면서 겪었던 어려움 
+* **문제/해결** <br>
+1. 파라미터가 넘어오지 않는다. -> 콘솔에서 로그를 확인하거나 개발자 도구의 headers 값을 확인하여, 코드에서 빠진 부분을 확인하고 수정하였다. 
+2. service 에서 entity 컬럼 값을 받지 못하였다. -> dto를 별도로 만들어 service 에 연결하였다.  
+3. security 에서 사용자 지정 로그인 페이지 사용시 로그인이 되지 않았다. -> customSercurityConfig 클래스를 만들고, username 과 password 파라미터를 받을 수 있도록 하였다.
 <br>
 
 ## 테스트 안내 
-**데이터베이스 초기세팅이 필요합니다.** <br>
-테이블은 자동으로 생성되며, 아래의 구문으로 더미데이터를 입력하고 테스트합니다. 
+**데이터베이스 초기세팅이 필요합니다.**
+두 개의 테이블을 만들고 Todo 를 실행합니다. 
 
-insert into....
+    CREATE TABLE `todo` (
+      `tno` int NOT NULL AUTO_INCREMENT,
+      `todo` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `duedate` datetime DEFAULT CURRENT_TIMESTAMP,
+      `finished` int DEFAULT '0',
+      `idx` int DEFAULT NULL,
+      PRIMARY KEY (`tno`),
+      KEY `fk_idx_idx` (`idx`),
+      CONSTRAINT `fk_idx` FOREIGN KEY (`idx`) REFERENCES `todomember` (`idx`)
+    )
+    
+ <br>
 
-<br>
+    CREATE TABLE `todomember` (
+      `idx` int NOT NULL AUTO_INCREMENT,
+      `userid` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `password` varchar(145) COLLATE utf8mb3_bin NOT NULL,
+      `username` varchar(45) COLLATE utf8mb3_bin NOT NULL,
+      `role` varchar(45) COLLATE utf8mb3_bin DEFAULT 'USER',
+      `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (`idx`),
+      UNIQUE KEY `userid_UNIQUE` (`userid`)
+    )
 
-## 프로젝트 ppt 
-ppt가 완성되면 주소 혹은 파일을 삽입합니다. 
-<br>
-<br>
 
-
-## 구현하면서 겪었던 어려움(개별로 fork 하여 작성 부탁드립니다.)
-* **문제/해결** <br>
-1. 이러이러한 문제가 있었다. ...
-<br>
 
 ## 버전설명
 * v0
-   * 사용자간의 게임 아이템 거래가 가능한 중개 플랫폼 사이트
-      * crud 기능 ...
+   * CRUD 가 가능한 Todo 
    
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- 뱃지 사이트 https://shields.io/ -->
@@ -110,3 +121,4 @@ ppt가 완성되면 주소 혹은 파일을 삽입합니다.
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
 
+>>>>>>> parent of 58d112b (readme 기본 틀 작성)
