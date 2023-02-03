@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# classproject
-=======
 # Todo mini Project
 Spring boot 를 이용한 todo project 최종본 입니다.  <br>
 <br>
@@ -121,4 +118,3 @@ Spring boot 를 이용한 todo project 최종본 입니다.  <br>
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
 
->>>>>>> parent of 58d112b (readme 기본 틀 작성)
